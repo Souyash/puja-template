@@ -1,0 +1,1439 @@
+<!DOCTYPE html>
+<html lang="bn" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>কামালপুর অভিযান সংঘ | শারদীয় দুর্গোৎসব & ক্লাব কার্যক্রম</title>
+  
+  <!-- Google Fonts: Hind Siliguri, Cinzel Decorative, Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Hind+Siliguri:wght@400;500;600;700&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            festiveCrimson: '#880816',
+            festiveRed: '#c1121f',
+            festiveDarkRed: '#50070c',
+            festiveGold: '#f59e0b',
+            festiveAmber: '#fbbf24',
+            festiveDark: '#0b0709',
+            festiveCardBg: 'rgba(28, 12, 16, 0.85)'
+          },
+          fontFamily: {
+            bengali: ['"Hind Siliguri"', 'sans-serif'],
+            cinzel: ['"Cinzel Decorative"', 'serif'],
+            sans: ['"Outfit"', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0b0709;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #c1121f;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #f59e0b;
+    }
+
+    body {
+      background-color: #0b0709;
+      color: #fce7f3;
+      overflow-x: hidden;
+      font-family: 'Hind Siliguri', 'Outfit', sans-serif;
+    }
+
+    /* 3D Perspective Scene */
+    .perspective-1000 {
+      perspective: 1200px;
+    }
+    .transform-style-3d {
+      transform-style: preserve-3d;
+    }
+
+    /* Glowing Foil Text */
+    .gold-foil-text {
+      background: linear-gradient(135deg, #ffe082 0%, #ffb300 35%, #ffd54f 60%, #ff8f00 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 25px rgba(255, 179, 0, 0.4);
+    }
+
+    /* Floating Brochure Styles */
+    .brochure-card {
+      transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.3s ease;
+      transform-style: preserve-3d;
+      will-change: transform;
+    }
+
+    .brochure-shadow {
+      filter: drop-shadow(0 25px 35px rgba(0, 0, 0, 0.85)) drop-shadow(0 10px 15px rgba(193, 18, 31, 0.4));
+    }
+
+    /* Subtle shimmer anim */
+    @keyframes shimmer {
+      0% { opacity: 0.6; }
+      50% { opacity: 1; filter: drop-shadow(0 0 14px rgba(251, 191, 36, 0.8)); }
+      100% { opacity: 0.6; }
+    }
+    .glow-pulse {
+      animation: shimmer 3s infinite ease-in-out;
+    }
+
+    /* Glassmorphism panel */
+    .glass-panel {
+      background: rgba(36, 12, 18, 0.65);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(245, 158, 11, 0.25);
+    }
+
+    /* Antigravity floating object state */
+    .antigravity-active {
+      cursor: grab;
+      user-select: none;
+    }
+    .antigravity-active:active {
+      cursor: grabbing;
+    }
+
+    /* Traditional Alpona Border Pattern */
+    .alpona-border {
+      border: 2px solid #f59e0b;
+      position: relative;
+    }
+    .alpona-border::before, .alpona-border::after {
+      content: "✦";
+      position: absolute;
+      color: #fbbf24;
+      font-size: 14px;
+    }
+    .alpona-border::before { top: -9px; left: -9px; }
+    .alpona-border::after { bottom: -9px; right: -9px; }
+  </style>
+</head>
+<body class="relative min-h-screen selection:bg-festiveRed selection:text-white">
+
+  <!-- Antigravity & Particle Canvas (Three.js and 2D canvas effects) -->
+  <canvas id="ambient-canvas" class="fixed inset-0 pointer-events-none z-0"></canvas>
+  <canvas id="antigravity-canvas" class="fixed inset-0 pointer-events-auto z-10 hidden"></canvas>
+
+  <!-- Festive Golden Vignette Overlay -->
+  <div class="fixed inset-0 pointer-events-none z-[5] bg-[radial-gradient(ellipse_at_top,_rgba(193,18,31,0.22)_0%,_transparent_65%),radial-gradient(ellipse_at_bottom,_rgba(0,0,0,0.9)_0%,_rgba(11,7,9,0.7)_100%)]"></div>
+
+  <header class="fixed top-0 left-0 right-0 z-50 glass-panel border-b border-festiveGold/20 px-4 lg:px-8 py-3 transition-all duration-300">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      
+      <!-- Brand & Emblem -->
+      <a href="#hero" class="flex items-center space-x-3 group">
+        <div class="w-11 h-11 rounded-full bg-gradient-to-tr from-amber-600 via-festiveRed to-yellow-400 p-0.5 shadow-lg shadow-festiveRed/50 flex items-center justify-center transform group-hover:rotate-12 transition-transform duration-300">
+          <div class="w-full h-full bg-festiveDark rounded-full flex items-center justify-center text-festiveAmber text-lg font-bold">
+            <i class="fa-solid fa-dharmachakra animate-spin-slow"></i>
+          </div>
+        </div>
+        <div>
+          <span class="block text-lg lg:text-xl font-bold font-bengali text-festiveAmber tracking-wide group-hover:text-yellow-300 transition-colors">
+            কামালপুর অভিযান সংঘ
+          </span>
+          <span class="block text-[10px] tracking-widest uppercase text-amber-200/80 font-sans">
+            Kamalpur Abhijan Sangha • Estd. 1952
+          </span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav links -->
+      <nav class="hidden md:flex items-center space-x-6 text-sm font-medium font-bengali text-amber-100">
+        <a href="#nirghonto" class="hover:text-festiveAmber transition-colors flex items-center gap-1.5">
+          <i class="fa-regular fa-calendar-days text-festiveGold text-xs"></i> নির্ঘণ্ট ও সূচি
+        </a>
+        <a href="#achievements" class="hover:text-festiveAmber transition-colors flex items-center gap-1.5">
+          <i class="fa-solid fa-trophy text-festiveGold text-xs"></i> সাফল্য ও সেবাকাজ
+        </a>
+        <a href="#sponsors" class="hover:text-festiveAmber transition-colors flex items-center gap-1.5">
+          <i class="fa-solid fa-rectangle-ad text-festiveGold text-xs"></i> বিজ্ঞাপন ও পৃষ্ঠপোষক
+        </a>
+        <a href="#committee" class="hover:text-festiveAmber transition-colors flex items-center gap-1.5">
+          <i class="fa-solid fa-users text-festiveGold text-xs"></i> যোগাযোগ
+        </a>
+      </nav>
+
+      <!-- Action Toggles: Dhaak Sound, Antigravity Agent, Ad Booking -->
+      <div class="flex items-center space-x-2 sm:space-x-3">
+        <!-- Synthesized Dhaak Audio Toggle -->
+        <button id="dhaak-btn" class="p-2 sm:px-3 sm:py-1.5 rounded-full glass-panel hover:bg-festiveRed/40 border border-festiveGold/30 text-amber-200 text-xs sm:text-sm font-sans flex items-center gap-2 transition active:scale-95" title="Toggle Festive Dhaak Audio">
+          <i id="dhaak-icon" class="fa-solid fa-volume-xmark text-festiveGold"></i>
+          <span class="hidden sm:inline">উৎসবের ঢাক</span>
+        </button>
+
+        <!-- Antigravity Mode Switch Button -->
+        <button id="gravity-toggle-btn" class="px-3.5 py-1.5 rounded-full bg-gradient-to-r from-festiveRed via-amber-600 to-yellow-500 text-festiveDark font-semibold text-xs sm:text-sm flex items-center gap-2 shadow-lg shadow-festiveRed/30 hover:shadow-yellow-500/40 hover:scale-105 active:scale-95 transition-all">
+          <i class="fa-solid fa-wand-magic-sparkles"></i>
+          <span id="gravity-status-text">Zero-G মোড</span>
+        </button>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg text-amber-200 hover:text-white glass-panel" aria-label="Open navigation menu">
+          <i class="fa-solid fa-bars text-lg"></i>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile Dropdown Navigation -->
+    <div id="mobile-menu" class="hidden md:hidden pt-4 pb-2 px-2 border-t border-festiveGold/10 mt-3 space-y-2 font-bengali text-center">
+      <a href="#nirghonto" class="block py-2 text-amber-100 hover:bg-festiveRed/20 rounded">পূজা নির্ঘণ্ট ও সময়সূচি</a>
+      <a href="#achievements" class="block py-2 text-amber-100 hover:bg-festiveRed/20 rounded">আমাদের গৌরব ও সাফল্য</a>
+      <a href="#sponsors" class="block py-2 text-amber-100 hover:bg-festiveRed/20 rounded">বিজ্ঞাপন ও ব্র্যান্ড পার্টনার</a>
+      <a href="#committee" class="block py-2 text-amber-100 hover:bg-festiveRed/20 rounded">কমিটি ও সদস্য পোর্টাল</a>
+    </div>
+  </header>
+
+  <div class="relative z-20 pt-20">
+    <div class="bg-gradient-to-r from-festiveDark via-festiveCrimson to-festiveDark text-amber-200 py-1.5 px-4 text-xs font-bengali border-y border-festiveGold/20 flex items-center overflow-hidden">
+      <span class="bg-festiveGold text-festiveDark font-bold px-2 py-0.5 rounded text-[11px] uppercase mr-3 whitespace-nowrap flex items-center gap-1">
+        <i class="fa-solid fa-bullhorn animate-pulse"></i> বিশেষ বিজ্ঞপ্তি
+      </span>
+      <div class="overflow-hidden whitespace-nowrap w-full">
+        <div class="inline-block animate-marquee pl-full">
+          স্বাগত! কামালপুর অভিযান সংঘের ৭৪তম শারদীয় দুর্গোৎসবে সকলকে সাদর আমন্ত্রণ • মহাষ্টমীর পুষ্পাঞ্জলি সকাল ৯:৩০ টায় • ক্লাবের রক্তদান শিবিরে সংগৃহীত হলো রেকর্ড ২২০ ইউনিট রক্ত • বিজ্ঞাপন ও শুভেচ্ছা বার্তার জন্য এখনই স্লট বুক করুন!
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main class="relative z-20">
+
+    <section id="hero" class="min-h-screen relative flex items-center justify-center px-4 py-16 overflow-hidden">
+      
+      <!-- Center Glow radial -->
+      <div class="absolute w-[600px] h-[600px] bg-festiveRed/20 rounded-full blur-[140px] pointer-events-none top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
+      
+      <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center w-full">
+        
+        <!-- Left Hero Content -->
+        <div class="lg:col-span-6 text-center lg:text-left space-y-6">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-festiveGold/40 bg-festiveCrimson/30 backdrop-blur-md">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+            <span class="text-xs font-semibold uppercase tracking-wider text-festiveAmber">
+              ঐতিহ্যের ৭৪তম বর্ষ উদ্‌যাপন
+            </span>
+          </div>
+
+          <div class="space-y-2">
+            <p class="text-sm font-bengali text-amber-300/80 tracking-wide font-medium italic">
+              ওঁ সর্বমঙ্গলমঙ্গল্যে শিবে সর্বার্থসাধিকে। শরণ্যে ত্র্যম্বকে গৌরি নারায়ণি নমোঽস্তু তে॥
+            </p>
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black font-bengali tracking-tight leading-tight">
+              <span class="gold-foil-text block">শারদীয় দুর্গোৎসব</span>
+              <span class="text-white text-3xl sm:text-4xl lg:text-5xl mt-1 block">কামালপুর অভিযান সংঘ</span>
+            </h1>
+          </div>
+
+          <p class="text-gray-300 text-sm sm:text-base leading-relaxed max-w-xl mx-auto lg:mx-0 font-bengali">
+            হিমেল পরশ, নীল আকাশে সাদা মেঘের ভেলা আর কাশের দোলায় জেগে উঠেছে বাঙালির প্রাণ। সম্প্রীতি, সংস্কৃতি ও মানবসেবার ব্রত নিয়ে মা দুর্গার আবাহনে প্রস্তুত আমাদের প্রাণের ক্লাব।
+          </p>
+
+          <!-- Interactive Action Buttons -->
+          <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
+            <a href="#nirghonto" class="px-6 py-3 rounded-xl bg-gradient-to-r from-festiveRed to-amber-600 text-white font-semibold font-bengali shadow-lg shadow-festiveRed/50 hover:shadow-festiveGold/40 hover:-translate-y-0.5 transition-all flex items-center gap-2">
+              <i class="fa-solid fa-om text-festiveGold"></i> পূজা নির্ঘণ্ট দেখুন
+            </a>
+            <a href="#sponsors" class="px-6 py-3 rounded-xl glass-panel border border-festiveGold/30 text-amber-200 hover:text-white hover:bg-festiveRed/30 transition-all font-bengali flex items-center gap-2">
+              <i class="fa-solid fa-bullhorn text-festiveAmber"></i> বিজ্ঞাপন ও স্পনসরশিপ
+            </a>
+            <button onclick="triggerAntigravityImpulse()" class="px-4 py-3 rounded-xl bg-festiveDark/70 border border-amber-500/40 text-festiveGold hover:bg-festiveGold hover:text-festiveDark font-sans text-xs transition-all flex items-center gap-2" title="Create Zero-G push">
+              <i class="fa-solid fa-atom"></i> Antigravity Push
+            </button>
+          </div>
+
+          <!-- Quick Stats counters -->
+          <div class="grid grid-cols-3 gap-4 pt-6 border-t border-festiveGold/20 max-w-lg mx-auto lg:mx-0">
+            <div class="text-center lg:text-left">
+              <div class="text-2xl lg:text-3xl font-bold font-sans text-festiveAmber counter-value" data-target="74">0</div>
+              <div class="text-xs text-amber-200/70 font-bengali">গৌরবময় বর্ষ</div>
+            </div>
+            <div class="text-center lg:text-left">
+              <div class="text-2xl lg:text-3xl font-bold font-sans text-festiveAmber counter-value" data-target="15">0</div>
+              <div class="text-xs text-amber-200/70 font-bengali">জেলা পর্যায়ের সেরা ট্রফি</div>
+            </div>
+            <div class="text-center lg:text-left">
+              <div class="text-2xl lg:text-3xl font-bold font-sans text-festiveAmber counter-value" data-target="1800">0</div>
+              <div class="text-xs text-amber-200/70 font-bengali">ভোগ বিতরণ প্রতিদিন</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-6 flex justify-center items-center perspective-1000 relative">
+          
+          <!-- Decorative Background Aura ring -->
+          <div class="absolute w-80 h-80 rounded-full border border-festiveGold/20 animate-spin-slow pointer-events-none"></div>
+          <div class="absolute w-96 h-96 rounded-full border border-dashed border-festiveRed/30 pointer-events-none"></div>
+
+          <!-- Brochure 3D Stage -->
+          <div id="brochure-stage" class="relative w-[320px] sm:w-[380px] h-[520px] transform-style-3d cursor-pointer select-none">
+            
+            <!-- Floating Flyer 1: Secondary Dark Brochure (Back angled) -->
+            <div id="flyer-back" class="brochure-card brochure-shadow absolute top-4 left-0 w-[270px] sm:w-[310px] h-[430px] rounded-2xl p-5 bg-gradient-to-b from-[#18090d] via-[#100406] to-[#080203] border border-amber-500/30 text-amber-100 transform -rotate-12 translate-x-[-25px] translate-y-[20px] translate-z-[-60px] hover:translate-z-[-20px] transition-transform duration-500">
+              <div class="h-full flex flex-col justify-between border border-amber-400/20 p-4 rounded-xl relative overflow-hidden bg-cover bg-center">
+                <!-- Background Durga Silhouette Sketch -->
+                <div class="absolute inset-0 opacity-20 pointer-events-none flex items-center justify-center">
+                  <svg viewBox="0 0 200 200" class="w-full h-full text-festiveGold" fill="currentColor">
+                    <circle cx="100" cy="100" r="90" fill="none" stroke="currentColor" stroke-width="2"/>
+                    <path d="M100 25 C120 70 140 100 170 110 C140 120 120 150 100 190 C80 150 60 120 30 110 C60 100 80 70 100 25 Z" opacity="0.6"/>
+                  </svg>
+                </div>
+
+                <div>
+                  <div class="flex justify-between items-center text-[10px] uppercase font-sans text-amber-400/80">
+                    <span>পুজো নির্ঘন্ট ২০২৬</span>
+                    <span class="text-festiveRed font-bold">শারদীয়া</span>
+                  </div>
+                  <h3 class="text-lg font-bold font-bengali text-amber-200 mt-2">তুহি দুর্গা দশপ্রহরণধারিণী</h3>
+                  <p class="text-[11px] font-bengali text-gray-300 mt-2 leading-relaxed">
+                    মা আসছে মর্ত্যধামে আনন্দ ও শান্তির বার্তা নিয়ে। আসুন আমরা সবাই মিলে এই মহোৎসব আনন্দঘন করে তুলি।
+                  </p>
+                </div>
+
+                <div class="space-y-2 text-xs font-bengali bg-black/60 p-2.5 rounded-lg border border-amber-400/20">
+                  <div class="flex justify-between border-b border-white/10 pb-1">
+                    <span class="text-amber-300 font-semibold">মহাষ্টমী পুষ্পাঞ্জলি:</span>
+                    <span>সকাল ৯:৩০</span>
+                  </div>
+                  <div class="flex justify-between border-b border-white/10 pb-1">
+                    <span class="text-amber-300 font-semibold">সন্ধিপূজা:</span>
+                    <span>রাত ৮:১৫ - ৯:০৩</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span class="text-amber-300 font-semibold">ভোগ বিতরণ:</span>
+                    <span>দুপুর ১:০০ টা</span>
+                  </div>
+                </div>
+
+                <div class="text-[10px] text-center text-amber-400/70 border-t border-amber-400/20 pt-2 font-bengali">
+                  বিনীত: পূজা পরিচালন সমিতি • কামালপুর
+                </div>
+              </div>
+            </div>
+
+            <!-- Floating Flyer 2: Main Rich Red Invitation Card (Front angled - Matching User Mockup) -->
+            <div id="flyer-front" class="brochure-card brochure-shadow absolute top-0 right-0 w-[280px] sm:w-[320px] h-[460px] rounded-2xl p-5 bg-gradient-to-br from-[#d90429] via-[#9d0208] to-[#370617] border-2 border-amber-400/60 text-white transform rotate-6 translate-x-[20px] translate-y-[-10px] translate-z-[40px] hover:translate-z-[80px] transition-transform duration-500">
+              
+              <div class="h-full flex flex-col justify-between border-2 border-amber-300/40 p-4 rounded-xl relative shadow-inner overflow-hidden">
+                
+                <!-- Corner Alpona motifs -->
+                <div class="absolute top-2 left-2 text-amber-300 text-xs select-none">❖</div>
+                <div class="absolute top-2 right-2 text-amber-300 text-xs select-none">❖</div>
+                <div class="absolute bottom-2 left-2 text-amber-300 text-xs select-none">❖</div>
+                <div class="absolute bottom-2 right-2 text-amber-300 text-xs select-none">❖</div>
+
+                <!-- Top Shloka Header -->
+                <div class="text-center pt-1">
+                  <div class="text-[9px] sm:text-[10px] font-bengali text-amber-200 tracking-tight leading-tight">
+                    ওঁ সর্বমঙ্গলমঙ্গল্যে শিবে সর্বার্থসাধিকে।<br>শরণ্যে ত্র্যম্বকে গৌরি নারায়ণি নমোঽস্তু তে॥
+                  </div>
+                  <div class="mt-2 text-xs uppercase tracking-widest text-amber-300 font-sans font-bold">
+                    সার্বজনীন
+                  </div>
+                  <h2 class="text-2xl sm:text-3xl font-extrabold font-bengali text-amber-300 tracking-wide drop-shadow-md">
+                    শারদীয় দুর্গোৎসব
+                  </h2>
+                </div>
+
+                <!-- Center Durga Face / Mandala Vector Graphic (SVG) -->
+                <div class="my-auto flex flex-col items-center justify-center relative">
+                  <!-- Glowing ring around Durga -->
+                  <div class="w-36 h-36 rounded-full border-2 border-amber-400/80 p-1 flex items-center justify-center bg-black/30 shadow-lg shadow-amber-500/30">
+                    <div class="w-full h-full rounded-full border border-dashed border-amber-300 flex items-center justify-center p-2 relative">
+                      
+                      <!-- Inline Durga Face Graphic -->
+                      <svg viewBox="0 0 100 100" class="w-28 h-28 text-amber-300 drop-shadow-[0_4px_10px_rgba(0,0,0,0.7)]">
+                        <!-- Third Eye / Trinetra -->
+                        <path d="M50 20 Q56 30 50 38 Q44 30 50 20 Z" fill="#ffd166" stroke="#c1121f" stroke-width="0.8"/>
+                        <!-- Left Big Eye -->
+                        <path d="M22 45 Q36 34 46 45 Q36 52 22 45 Z" fill="#ffffff" stroke="#111" stroke-width="0.8"/>
+                        <circle cx="34" cy="44" r="4.5" fill="#1b120c"/>
+                        <circle cx="35" cy="43" r="1.5" fill="#fff"/>
+                        <!-- Right Big Eye -->
+                        <path d="M78 45 Q64 34 54 45 Q64 52 78 45 Z" fill="#ffffff" stroke="#111" stroke-width="0.8"/>
+                        <circle cx="66" cy="44" r="4.5" fill="#1b120c"/>
+                        <circle cx="65" cy="43" r="1.5" fill="#fff"/>
+                        <!-- Nose and Nath (Nose Ring) -->
+                        <path d="M49 46 L51 58 L46 60" fill="none" stroke="#ffe082" stroke-width="1.2" stroke-linecap="round"/>
+                        <circle cx="43" cy="59" r="4.5" fill="none" stroke="#ffe082" stroke-width="1"/>
+                        <circle cx="41" cy="57" r="1" fill="#c1121f"/>
+                        <!-- Lips with pleasant smile -->
+                        <path d="M42 68 Q50 74 58 68 Q50 71 42 68 Z" fill="#c1121f"/>
+                        <!-- Mukut / Crown Arc hint -->
+                        <path d="M30 22 Q50 8 70 22" fill="none" stroke="#ffd166" stroke-width="2"/>
+                        <circle cx="50" cy="14" r="3" fill="#ffe082"/>
+                      </svg>
+
+                    </div>
+                  </div>
+                  
+                  <div class="mt-2 text-[10px] text-amber-200 tracking-wider font-bengali">
+                    শ্রী শ্রী দুর্গায়ৈ নমঃ
+                  </div>
+                </div>
+
+                <!-- Footer Organizers Information -->
+                <div class="text-center pt-2 border-t border-amber-300/40">
+                  <div class="text-[11px] font-bengali text-amber-200">মাতৃ আরাধনায়-</div>
+                  <div class="text-base font-bold font-bengali text-yellow-300 tracking-wide drop-shadow">
+                    কামালপুর অভিযান সংঘ
+                  </div>
+                  <div class="text-[9px] text-amber-100/80 font-sans tracking-wide mt-0.5">
+                    রেজি নং- S/54028 • কামালপুর, উত্তর ব্যারাকপুর
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Floating 3D Glow Diya Accent -->
+            <div class="absolute -bottom-6 -left-6 w-20 h-20 rounded-full bg-gradient-to-t from-amber-600 to-yellow-300 filter blur-sm opacity-60 animate-pulse pointer-events-none"></div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Scroll down indicator -->
+      <a href="#nirghonto" class="absolute bottom-4 left-1/2 -translate-x-1/2 flex flex-col items-center text-amber-300/70 hover:text-amber-300 transition-colors">
+        <span class="text-[11px] font-bengali tracking-widest">নিচে স্ক্রোল করুন</span>
+        <i class="fa-solid fa-angles-down text-sm mt-1 animate-bounce"></i>
+      </a>
+
+    </section>
+
+    <section id="nirghonto" class="py-20 px-4 max-w-7xl mx-auto">
+      
+      <div class="text-center max-w-3xl mx-auto mb-14 space-y-3">
+        <div class="inline-block p-1 rounded-full bg-festiveRed/30 border border-festiveGold/30 px-4 text-xs font-semibold text-festiveAmber">
+          শারদ নির্ঘণ্ট ও তিথি ২০২৬
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold font-bengali text-white">
+          পূজা নির্ঘণ্ট ও মাঙ্গলিক সময়সূচি
+        </h2>
+        <p class="text-sm font-bengali text-gray-300">
+          শাস্ত্রমতে সঠিক সময়ে পুষ্পাঞ্জলি ও ভোগের মাঙ্গলিক মুহূর্তগুলোতে স্ববান্ধবে উপস্থিত থাকুন।
+        </p>
+
+        <!-- Pushpanjali Countdown Timer -->
+        <div class="glass-panel p-5 rounded-2xl border border-festiveGold/30 mt-6 shadow-2xl">
+          <div class="text-xs uppercase tracking-wider text-festiveGold font-semibold mb-3 flex items-center justify-center gap-2">
+            <i class="fa-solid fa-stopwatch text-base"></i> মহাষ্টমী পুষ্পাঞ্জলি কাউন্টডাউন
+          </div>
+          <div class="grid grid-cols-4 gap-3 max-w-md mx-auto text-center">
+            <div class="bg-black/60 p-2.5 rounded-xl border border-festiveGold/20">
+              <span id="days" class="text-2xl sm:text-3xl font-bold font-sans text-amber-300">00</span>
+              <span class="block text-[10px] text-gray-400 font-bengali">দিন</span>
+            </div>
+            <div class="bg-black/60 p-2.5 rounded-xl border border-festiveGold/20">
+              <span id="hours" class="text-2xl sm:text-3xl font-bold font-sans text-amber-300">00</span>
+              <span class="block text-[10px] text-gray-400 font-bengali">ঘণ্টা</span>
+            </div>
+            <div class="bg-black/60 p-2.5 rounded-xl border border-festiveGold/20">
+              <span id="minutes" class="text-2xl sm:text-3xl font-bold font-sans text-amber-300">00</span>
+              <span class="block text-[10px] text-gray-400 font-bengali">মিনিট</span>
+            </div>
+            <div class="bg-black/60 p-2.5 rounded-xl border border-festiveGold/20">
+              <span id="seconds" class="text-2xl sm:text-3xl font-bold font-sans text-amber-300">00</span>
+              <span class="block text-[10px] text-gray-400 font-bengali">সেকেন্ড</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Schedule Cards (5 Puja Days) with 3D Tilt Hover -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <!-- Sasthi Card -->
+        <div class="glass-panel rounded-2xl p-6 border border-festiveGold/20 hover:border-festiveGold transition-all duration-300 group hover:-translate-y-2">
+          <div class="flex justify-between items-start mb-4">
+            <span class="text-xs font-bold text-festiveGold bg-festiveRed/40 px-3 py-1 rounded-full">ষষ্ঠী • বিল্ববরণ</span>
+            <span class="text-xs text-amber-200/80 font-sans">October 16</span>
+          </div>
+          <h3 class="text-xl font-bold font-bengali text-white group-hover:text-festiveGold transition-colors">মহাষষ্ঠী বিহিত পূজা</h3>
+          <ul class="mt-4 space-y-2.5 text-xs sm:text-sm font-bengali text-gray-300">
+            <li class="flex items-center justify-between border-b border-white/5 pb-1.5">
+              <span>কল্পারম্ভ ও আমন্ত্রণ:</span> <strong class="text-amber-300">সকাল ৮:১৫</strong>
+            </li>
+            <li class="flex items-center justify-between border-b border-white/5 pb-1.5">
+              <span>বোধনে মায়ের বরণ:</span> <strong class="text-amber-300">সন্ধ্যা ৬:৩০</strong>
+            </li>
+            <li class="flex items-center justify-between">
+              <span>উদ্বোধনী সাংস্কৃতিক জলসা:</span> <strong class="text-amber-300">রাত ৮:০০</strong>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Saptami Card -->
+        <div class="glass-panel rounded-2xl p-6 border border-festiveGold/20 hover:border-festiveGold transition-all duration-300 group hover:-translate-y-2">
+          <div class="flex justify-between items-start mb-4">
+            <span class="text-xs font-bold text-festiveGold bg-festiveRed/40 px-3 py-1 rounded-full">সপ্তমী • নবপত্রিকা</span>
+            <span class="text-xs text-amber-200/80 font-sans">October 17</span>
+          </div>
+          <h3 class="text-xl font-bold font-bengali text-white group-hover:text-festiveGold transition-colors">মহাসপ্তমী পূজা</h3>
+          <ul class="mt-4 space-y-2.5 text-xs sm:text-sm font-bengali text-gray-300">
+            <li class="flex items-center justify-between border-b border-white/5 pb-1.5">
+              <span>নবপত্রিকা স্নান ও প্রবেশ:</span> <strong class="text-amber-300">সকাল ৭:৪৫</strong>
+            </li>
+            <li class="flex items-center justify-between border-b border-white/5 pb-1.5">
+              <span>সপ্তমী পুষ্পাঞ্জলি:</span> <strong class="text-amber-300">সকাল ১০:১৫</strong>
+            </li>
+            <li class="flex items-center justify-between">
+              <span>সার্বজনীন মহাভোগ:</span> <strong class="text-amber-300">দুপুর ১:৩০</strong>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Ashtami Card (Highlighted) -->
+        <div class="glass-panel rounded-2xl p-6 border-2 border-amber-400 bg-gradient-to-b from-festiveCrimson/30 to-black/60 shadow-xl shadow-festiveRed/20 hover:-translate-y-2 transition-all duration-300 group">
+          <div class="flex justify-between items-start mb-4">
+            <span class="text-xs font-bold text-black bg-amber-400 px-3 py-1 rounded-full">মহাষ্টমী • সন্ধিপূজা</span>
+            <span class="text-xs text-amber-200 font-sans font-semibold">October 18</span>
+          </div>
+          <h3 class="text-xl font-bold font-bengali text-yellow-300">মহাষ্টমী ও কুমারী পূজা</h3>
+          <ul class="mt-4 space-y-2.5 text-xs sm:text-sm font-bengali text-amber-100">
+            <li class="flex items-center justify-between border-b border-amber-400/20 pb-1.5">
+              <span>মহাষ্টমী পুষ্পাঞ্জলি:</span> <strong class="text-yellow-400 text-sm">সকাল ৯:৩০</strong>
+            </li>
+            <li class="flex items-center justify-between border-b border-amber-400/20 pb-1.5">
+              <span>সন্ধিপূজা আরম্ভ:</span> <strong class="text-yellow-400 text-sm">রাত ৮:১৫</strong>
+            </li>
+            <li class="flex items-center justify-between">
+              <span>১০৮ প্রদীপ প্রজ্জ্বলন:</span> <strong class="text-yellow-400 text-sm">রাত ৮:৩৯</strong>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Nabami Card -->
+        <div class="glass-panel rounded-2xl p-6 border border-festiveGold/20 hover:border-festiveGold transition-all duration-300 group hover:-translate-y-2">
+          <div class="flex justify-between items-start mb-4">
+            <span class="text-xs font-bold text-festiveGold bg-festiveRed/40 px-3 py-1 rounded-full">নবমী • হোমযজ্ঞ</span>
+            <span class="text-xs text-amber-200/80 font-sans">October 19</span>
+          </div>
+          <h3 class="text-xl font-bold font-bengali text-white group-hover:text-festiveGold transition-colors">মহানবমী যজ্ঞ ও আরতি</h3>
+          <ul class="mt-4 space-y-2.5 text-xs sm:text-sm font-bengali text-gray-300">
+            <li class="flex items-center justify-between border-b border-white/5 pb-1.5">
+              <span>নবমী পুষ্পাঞ্জলি:</span> <strong class="text-amber-300">সকাল ১০:০০</strong>
+            </li>
+            <li class="flex items-center justify-between border-b border-white/5 pb-1.5">
+              <span>ধুনুচি নাচ প্রতিযোগিতা:</span> <strong class="text-amber-300">সন্ধ্যা ৭:০০</strong>
+            </li>
+            <li class="flex items-center justify-between">
+              <span>মহাযজ্ঞ পূর্ণাহুতি:</span> <strong class="text-amber-300">রাত ৮:৩০</strong>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Dashami Card -->
+        <div class="glass-panel rounded-2xl p-6 border border-festiveGold/20 hover:border-festiveGold transition-all duration-300 group hover:-translate-y-2">
+          <div class="flex justify-between items-start mb-4">
+            <span class="text-xs font-bold text-festiveGold bg-festiveRed/40 px-3 py-1 rounded-full">দশমী • বিজয়া</span>
+            <span class="text-xs text-amber-200/80 font-sans">October 20</span>
+          </div>
+          <h3 class="text-xl font-bold font-bengali text-white group-hover:text-festiveGold transition-colors">বিজয়া দশমী ও বিসর্জন</h3>
+          <ul class="mt-4 space-y-2.5 text-xs sm:text-sm font-bengali text-gray-300">
+            <li class="flex items-center justify-between border-b border-white/5 pb-1.5">
+              <span>মায়ের দর্পণ বিসর্জন:</span> <strong class="text-amber-300">সকাল ৯:৪৫</strong>
+            </li>
+            <li class="flex items-center justify-between border-b border-white/5 pb-1.5">
+              <span>সিঁদুর খেলা ও মিষ্টিমুখ:</span> <strong class="text-amber-300">বেলা ১১:৩০</strong>
+            </li>
+            <li class="flex items-center justify-between">
+              <span>শান্তিজল ও শোভাযাত্রা:</span> <strong class="text-amber-300">সন্ধ্যা ৬:০০</strong>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Prasad Booking Card -->
+        <div class="glass-panel rounded-2xl p-6 border border-festiveGold/40 bg-gradient-to-br from-amber-600/20 to-black/80 flex flex-col justify-between">
+          <div>
+            <div class="text-festiveGold text-2xl mb-2"><i class="fa-solid fa-bowl-food"></i></div>
+            <h3 class="text-xl font-bold font-bengali text-white">মহাপ্রসাদ ও ভোগ কুপন</h3>
+            <p class="text-xs font-bengali text-gray-300 mt-2 leading-relaxed">
+              সপ্তমী থেকে নবমী পর্যন্ত ভক্তদের জন্য মহাপ্রসাদের ব্যবস্থা। অগ্রিম অনলাইন বা ক্লাব কাউন্টারে কুপন সংগ্রহ করুন।
+            </p>
+          </div>
+          <button onclick="openBookingModal('ভোগ কুপন সংগ্রহ')" class="mt-6 w-full py-2.5 rounded-xl bg-gradient-to-r from-festiveRed to-amber-600 text-white font-bengali font-semibold text-sm hover:opacity-90 transition">
+            ভোগ কুপন সংগ্রহ ফরম
+          </button>
+        </div>
+
+      </div>
+
+    </section>
+
+    <section id="achievements" class="py-20 px-4 bg-festiveDark/90 relative border-t border-festiveGold/10">
+      
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center max-w-2xl mx-auto mb-14 space-y-3">
+          <div class="inline-block p-1 rounded-full bg-festiveRed/30 border border-festiveGold/30 px-4 text-xs font-semibold text-festiveAmber font-bengali">
+            ক্লাবের গৌরবোজ্জ্বল কর্মকাণ্ড
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold font-bengali text-white">
+            সাফল্য ও সমাজসেবার খতিয়ান
+          </h2>
+          <p class="text-sm font-bengali text-gray-300">
+            শুধু উৎসবের চার দিন নয়, সারা বছর সমাজ ও মানুষের পাশে দাঁড়ানোই কামালপুর অভিযান সংঘের মূল লক্ষ্য।
+          </p>
+        </div>
+
+        <!-- 3D Perspective Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          
+          <!-- Achievement 1 -->
+          <div class="glass-panel p-6 rounded-2xl border border-festiveGold/20 hover:border-festiveAmber transition-all group">
+            <div class="w-14 h-14 rounded-2xl bg-amber-500/10 border border-amber-400/30 flex items-center justify-center text-festiveGold text-2xl mb-4 group-hover:scale-110 transition-transform">
+              <i class="fa-solid fa-leaf"></i>
+            </div>
+            <h3 class="text-lg font-bold font-bengali text-white">সেরার সেরা পরিবেশবান্ধব মণ্ডপ</h3>
+            <p class="text-xs font-bengali text-gray-400 mt-2 leading-relaxed">
+              ২০২৪ সালে প্লাস্টিকমুক্ত পরিবেশবান্ধব ও হস্তশিল্পের দৃষ্টিনন্দন মণ্ডপ সজ্জার জন্য জেলা সেরা সম্মাননা প্রাপ্তি।
+            </p>
+            <div class="mt-4 text-xs text-amber-300 font-sans font-semibold">
+              <i class="fa-solid fa-award"></i> Best Green Pandal Award
+            </div>
+          </div>
+
+          <!-- Achievement 2 -->
+          <div class="glass-panel p-6 rounded-2xl border border-festiveGold/20 hover:border-festiveAmber transition-all group">
+            <div class="w-14 h-14 rounded-2xl bg-red-500/10 border border-red-400/30 flex items-center justify-center text-red-500 text-2xl mb-4 group-hover:scale-110 transition-transform">
+              <i class="fa-solid fa-hand-holding-droplet"></i>
+            </div>
+            <h3 class="text-lg font-bold font-bengali text-white">বার্ষিক রক্তদান ও স্বাস্থ্য শিবির</h3>
+            <p class="text-xs font-bengali text-gray-400 mt-2 leading-relaxed">
+              গত ২৫ বছর ধরে প্রতি বৈশাখে রক্তদান শিবির ও দুঃস্থদের বিনামূল্যে চক্ষু ও সাধারণ স্বাস্থ্য পরীক্ষা কর্মসূচি।
+            </p>
+            <div class="mt-4 text-xs text-red-300 font-sans font-semibold">
+              <i class="fa-solid fa-heart-pulse"></i> 1,200+ Donors Enrolled
+            </div>
+          </div>
+
+          <!-- Achievement 3 -->
+          <div class="glass-panel p-6 rounded-2xl border border-festiveGold/20 hover:border-festiveAmber transition-all group">
+            <div class="w-14 h-14 rounded-2xl bg-yellow-500/10 border border-yellow-400/30 flex items-center justify-center text-yellow-400 text-2xl mb-4 group-hover:scale-110 transition-transform">
+              <i class="fa-solid fa-graduation-cap"></i>
+            </div>
+            <h3 class="text-lg font-bold font-bengali text-white">শিক্ষা সহায়তা ও শীতবস্ত্র বিতরণ</h3>
+            <p class="text-xs font-bengali text-gray-400 mt-2 leading-relaxed">
+              মেধাবী আর্থিক অনগ্রসর শিক্ষার্থীদের বার্ষিক বইপত্র প্রদান এবং প্রতি শীতে ৫০০+ পরিবারের পাশে কম্বল বিতরণ।
+            </p>
+            <div class="mt-4 text-xs text-yellow-300 font-sans font-semibold">
+              <i class="fa-solid fa-hands-holding-child"></i> 450+ Students Supported
+            </div>
+          </div>
+
+          <!-- Achievement 4 -->
+          <div class="glass-panel p-6 rounded-2xl border border-festiveGold/20 hover:border-festiveAmber transition-all group">
+            <div class="w-14 h-14 rounded-2xl bg-amber-500/10 border border-amber-400/30 flex items-center justify-center text-amber-400 text-2xl mb-4 group-hover:scale-110 transition-transform">
+              <i class="fa-solid fa-futbol"></i>
+            </div>
+            <h3 class="text-lg font-bold font-bengali text-white">খেলাধুলা ও আন্তঃক্লাব টুর্নামেন্ট</h3>
+            <p class="text-xs font-bengali text-gray-400 mt-2 leading-relaxed">
+              বার্ষিক ঐতিহ্যবাহী ফুটবল ও ক্রিকেট টুর্নামেন্টে চ্যাম্পিয়ন ট্রফি এবং তরুণ প্রতিভাদের নিয়মিত প্রশিক্ষণ ক্যাম্প।
+            </p>
+            <div class="mt-4 text-xs text-amber-300 font-sans font-semibold">
+              <i class="fa-solid fa-trophy"></i> 18 Championship Trophies
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <section id="sponsors" class="py-20 px-4 relative overflow-hidden">
+      
+      <!-- Background glow -->
+      <div class="absolute w-[500px] h-[500px] bg-amber-600/10 rounded-full blur-[160px] pointer-events-none -right-40 top-20"></div>
+
+      <div class="max-w-7xl mx-auto">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+          <div class="space-y-2">
+            <div class="inline-block p-1 rounded-full bg-festiveRed/30 border border-festiveGold/30 px-4 text-xs font-semibold text-festiveAmber font-bengali">
+              বিজ্ঞাপন ও সহযোগী প্রতিষ্ঠান
+            </div>
+            <h2 class="text-3xl sm:text-4xl font-extrabold font-bengali text-white">
+              আমাদের গর্বিত বিজ্ঞাপন ও স্পনসর সহযোগী
+            </h2>
+            <p class="text-sm font-bengali text-gray-300">
+              উৎসবের স্মারক প্রকাশনা ও মণ্ডপ প্রাঙ্গণে আপনার ব্যবসার প্রসারে যুক্ত হোন।
+            </p>
+          </div>
+          <div>
+            <button onclick="openBookingModal('স্পনসরশিপ / ব্যানার বিজ্ঞাপন স্লট বুকিং')" class="px-5 py-3 rounded-xl bg-gradient-to-r from-amber-500 to-yellow-400 text-black font-bold font-bengali shadow-lg hover:brightness-110 transition flex items-center gap-2">
+              <i class="fa-solid fa-bullhorn"></i> স্পনসর / বিজ্ঞাপন বুকিং করুন
+            </button>
+          </div>
+        </div>
+
+        <!-- 3D Interactive Ad Cube / Banners Deck -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          
+          <!-- Ad 1: Jewellery Partner -->
+          <div class="glass-panel rounded-2xl p-6 border border-amber-400/30 hover:border-festiveGold transition-all relative overflow-hidden group">
+            <div class="absolute top-3 right-3 text-[10px] font-sans uppercase px-2 py-0.5 rounded bg-amber-400/20 text-amber-300 border border-amber-400/30">
+              Principal Partner
+            </div>
+            <div class="text-3xl text-yellow-400 mb-4 group-hover:scale-110 transition-transform">
+              <i class="fa-solid fa-gem"></i>
+            </div>
+            <h4 class="text-xl font-bold font-bengali text-white">স্বর্ণালী জুয়েলার্স</h4>
+            <p class="text-xs text-amber-200/80 font-bengali mt-1">বিশুদ্ধ হলমার্ক সোনার গহনায় পুজো উপলক্ষে মজুরির উপর বিশেষ ২৫% ছাড়!</p>
+            <div class="mt-4 pt-3 border-t border-white/10 flex justify-between items-center text-xs">
+              <span class="text-gray-400">কামালপুর মেইন রোড</span>
+              <a href="#committee" class="text-festiveAmber hover:underline font-bengali">যোগাযোগ ও অফার &rarr;</a>
+            </div>
+          </div>
+
+          <!-- Ad 2: Traditional Sweets -->
+          <div class="glass-panel rounded-2xl p-6 border border-amber-400/30 hover:border-festiveGold transition-all relative overflow-hidden group">
+            <div class="absolute top-3 right-3 text-[10px] font-sans uppercase px-2 py-0.5 rounded bg-amber-400/20 text-amber-300 border border-amber-400/30">
+              Sweet Partner
+            </div>
+            <div class="text-3xl text-amber-400 mb-4 group-hover:scale-110 transition-transform">
+              <i class="fa-solid fa-cookie-bite"></i>
+            </div>
+            <h4 class="text-xl font-bold font-bengali text-white">মিষ্টিমুখ সুইটস</h4>
+            <p class="text-xs text-amber-200/80 font-bengali mt-1">মায়ের প্রসাদী খাঁটি ঘিয়ে ভাজা খাস্তা মিষ্টি, রসগোল্লা ও নলেনগুড়ের সন্দেশ।</p>
+            <div class="mt-4 pt-3 border-t border-white/10 flex justify-between items-center text-xs">
+              <span class="text-gray-400">স্টেশন রোড মোড়</span>
+              <a href="#committee" class="text-festiveAmber hover:underline font-bengali">যোগাযোগ ও অফার &rarr;</a>
+            </div>
+          </div>
+
+          <!-- Ad 3: Fashion & Sari -->
+          <div class="glass-panel rounded-2xl p-6 border border-amber-400/30 hover:border-festiveGold transition-all relative overflow-hidden group">
+            <div class="absolute top-3 right-3 text-[10px] font-sans uppercase px-2 py-0.5 rounded bg-amber-400/20 text-amber-300 border border-amber-400/30">
+              Fashion Partner
+            </div>
+            <div class="text-3xl text-rose-400 mb-4 group-hover:scale-110 transition-transform">
+              <i class="fa-solid fa-shirt"></i>
+            </div>
+            <h4 class="text-xl font-bold font-bengali text-white">রংবাহার শাড়ি প্যালেস</h4>
+            <p class="text-xs text-amber-200/80 font-bengali mt-1">পুজোর নতুন কালেকশন: বালুচরী, তাঁত, বেনারসী এবং কুর্তি সম্ভার বিপুল ছাড়ে।</p>
+            <div class="mt-4 pt-3 border-t border-white/10 flex justify-between items-center text-xs">
+              <span class="text-gray-400">ব্যারাকপুর বাজার</span>
+              <a href="#committee" class="text-festiveAmber hover:underline font-bengali">যোগাযোগ ও অফার &rarr;</a>
+            </div>
+          </div>
+
+          <!-- Ad 4: Real Estate & Builders -->
+          <div class="glass-panel rounded-2xl p-6 border border-amber-400/30 hover:border-festiveGold transition-all relative overflow-hidden group">
+            <div class="absolute top-3 right-3 text-[10px] font-sans uppercase px-2 py-0.5 rounded bg-amber-400/20 text-amber-300 border border-amber-400/30">
+              Housing Partner
+            </div>
+            <div class="text-3xl text-sky-400 mb-4 group-hover:scale-110 transition-transform">
+              <i class="fa-solid fa-building"></i>
+            </div>
+            <h4 class="text-xl font-bold font-bengali text-white">অভয় নীড় ডেভেলপার্স</h4>
+            <p class="text-xs text-amber-200/80 font-bengali mt-1">কামালপুর মেট্রো কানেক্টিভিটিতে আধুনিক ২ ও ৩ BHK লাক্সারি ফ্ল্যাট মাত্র ৩৫ লাখে।</p>
+            <div class="mt-4 pt-3 border-t border-white/10 flex justify-between items-center text-xs">
+              <span class="text-gray-400">কামালপুর বাইপাস</span>
+              <a href="#committee" class="text-festiveAmber hover:underline font-bengali">যোগাযোগ ও অফার &rarr;</a>
+            </div>
+          </div>
+
+          <!-- Ad 5: Diagnostics & Clinic -->
+          <div class="glass-panel rounded-2xl p-6 border border-amber-400/30 hover:border-festiveGold transition-all relative overflow-hidden group">
+            <div class="absolute top-3 right-3 text-[10px] font-sans uppercase px-2 py-0.5 rounded bg-amber-400/20 text-amber-300 border border-amber-400/30">
+              Healthcare
+            </div>
+            <div class="text-3xl text-emerald-400 mb-4 group-hover:scale-110 transition-transform">
+              <i class="fa-solid fa-stethoscope"></i>
+            </div>
+            <h4 class="text-xl font-bold font-bengali text-white">লাইফকেয়ার ডায়াগনস্টিক</h4>
+            <p class="text-xs text-amber-200/80 font-bengali mt-1">আধুনিক রক্ত পরীক্ষা, ডিজিটাল এক্স-রে ও ইউএসজি পুজোতেও ২৪x৭ খোলা।</p>
+            <div class="mt-4 pt-3 border-t border-white/10 flex justify-between items-center text-xs">
+              <span class="text-gray-400">হাসপাতাল রোড</span>
+              <a href="#committee" class="text-festiveAmber hover:underline font-bengali">যোগাযোগ ও অফার &rarr;</a>
+            </div>
+          </div>
+
+          <!-- Slot Available Booking Promo Card -->
+          <div class="glass-panel rounded-2xl p-6 border-2 border-dashed border-festiveGold/50 bg-festiveRed/10 hover:bg-festiveRed/20 transition-all flex flex-col justify-center items-center text-center p-6 cursor-pointer" onclick="openBookingModal('আপনার ব্যানার বিজ্ঞাপন দিন')">
+            <div class="w-12 h-12 rounded-full bg-festiveGold/20 flex items-center justify-center text-festiveAmber text-2xl mb-3">
+              <i class="fa-solid fa-plus"></i>
+            </div>
+            <h4 class="text-lg font-bold font-bengali text-white">এখানে আপনার ব্র্যান্ডের বিজ্ঞাপন দিন</h4>
+            <p class="text-xs text-amber-200/80 font-bengali mt-1 max-w-xs">স্মারক স্মরণিকা ও ডিজিটাল ওয়েবসাইটে ব্যানার বুক করার শেষ তারিখ ২৫ সেপ্টেম্বর।</p>
+            <span class="mt-3 text-xs font-semibold text-festiveGold underline">স্লট বুক করুন &rarr;</span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <section id="committee" class="py-16 px-4 bg-black/60 border-t border-festiveGold/20">
+      <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10">
+        
+        <div class="lg:col-span-5 space-y-4">
+          <h3 class="text-2xl font-bold font-bengali text-festiveAmber">কামালপুর অভিযান সংঘ</h3>
+          <p class="text-xs sm:text-sm font-bengali text-gray-300 leading-relaxed">
+            রেজিস্ট্রেশন নং: S/54028 Estd.- 1952<br>
+            ঠিকানা: কামালপুর রোড, উত্তর ব্যারাকপুর, উত্তর ২৪ পরগনা, পশ্চিমবঙ্গ - ৭০০১২০
+          </p>
+          <div class="space-y-2 text-xs font-bengali text-amber-100/90 pt-2">
+            <div><i class="fa-solid fa-phone text-festiveGold mr-2"></i> সাধারণ সম্পাদক: +৯১ ৯৮৩০০ XXXXX</div>
+            <div><i class="fa-solid fa-envelope text-festiveGold mr-2"></i> ইমেইল: info@kamalpurabhijansangha.org</div>
+            <div><i class="fa-solid fa-location-dot text-festiveGold mr-2"></i> নিকটবর্তী ল্যান্ডমার্ক: আনন্দময়ী কালীবাড়ি মোড়</div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-7">
+          <div class="glass-panel p-6 rounded-2xl border border-festiveGold/30">
+            <h4 class="text-lg font-bold font-bengali text-white mb-3">সরাসরি বার্তা ও শুভেচ্ছা জানান</h4>
+            <form onsubmit="handleMessageSubmit(event)" class="space-y-3 font-bengali text-sm">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <input type="text" id="contact-name" required placeholder="আপনার নাম" class="w-full bg-black/60 border border-white/20 rounded-xl px-4 py-2.5 text-white placeholder-gray-400 focus:outline-none focus:border-festiveGold">
+                <input type="tel" id="contact-phone" required placeholder="মোবাইল নম্বর" class="w-full bg-black/60 border border-white/20 rounded-xl px-4 py-2.5 text-white placeholder-gray-400 focus:outline-none focus:border-festiveGold">
+              </div>
+              <textarea id="contact-msg" required rows="3" placeholder="আপনার বার্তা / বিজ্ঞাপন বিষয়ক জিজ্ঞাসা..." class="w-full bg-black/60 border border-white/20 rounded-xl px-4 py-2.5 text-white placeholder-gray-400 focus:outline-none focus:border-festiveGold"></textarea>
+              <button type="submit" class="px-6 py-2.5 rounded-xl bg-gradient-to-r from-festiveRed to-amber-600 text-white font-semibold hover:opacity-90 transition">
+                বার্তা পাঠান
+              </button>
+            </form>
+          </div>
+        </div>
+
+      </div>
+      
+      <div class="max-w-7xl mx-auto border-t border-white/10 mt-12 pt-6 text-center text-xs text-gray-500 font-bengali">
+        © ২০২৬ কামালপুর অভিযান সংঘ সর্বস্বত্ব সংরক্ষিত • সার্বজনীন শারদীয় দুর্গোৎসব ও ক্লাব ওয়েব পোর্টাল
+      </div>
+    </section>
+
+  </main>
+
+  <div id="booking-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-md p-4 hidden">
+    <div class="bg-gradient-to-br from-[#1a080c] to-[#0c0406] border-2 border-festiveGold/40 rounded-2xl max-w-lg w-full p-6 text-white relative shadow-2xl">
+      <button onclick="closeBookingModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white text-xl">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="text-center mb-6">
+        <div class="w-12 h-12 mx-auto rounded-full bg-festiveRed/30 border border-festiveGold/40 flex items-center justify-center text-festiveGold text-xl mb-2">
+          <i class="fa-solid fa-receipt"></i>
+        </div>
+        <h3 id="modal-title" class="text-xl font-bold font-bengali text-amber-300">বিজ্ঞাপন ও সহযোগিতা আবেদন</h3>
+        <p class="text-xs text-gray-300 font-bengali mt-1">সঠিক তথ্য পূরণ করুন, আমাদের প্রতিনিধি খুব শীঘ্রই যোগাযোগ করবেন।</p>
+      </div>
+
+      <form onsubmit="handleBookingSubmit(event)" class="space-y-4 font-bengali text-sm">
+        <div>
+          <label class="block text-xs text-amber-200 mb-1">আপনার নাম / প্রতিষ্ঠানের নাম</label>
+          <input type="text" id="biz-name" required class="w-full bg-black/60 border border-white/20 rounded-xl px-4 py-2.5 text-white focus:outline-none focus:border-festiveGold" placeholder="উদাঃ রায় জুয়েলার্স">
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs text-amber-200 mb-1">যোগাযোগ নম্বর</label>
+            <input type="tel" id="biz-phone" required class="w-full bg-black/60 border border-white/20 rounded-xl px-4 py-2.5 text-white focus:outline-none focus:border-festiveGold" placeholder="9876543210">
+          </div>
+          <div>
+            <label class="block text-xs text-amber-200 mb-1">বিজ্ঞাপনের ধরন</label>
+            <select id="ad-tier" class="w-full bg-black/80 border border-white/20 rounded-xl px-4 py-2.5 text-amber-100 focus:outline-none focus:border-festiveGold">
+              <option value="স্মারক পত্রিকা পূর্ণ পৃষ্ঠা (₹5,000)">পত্রিকা ফুল পেজ (₹5k)</option>
+              <option value="স্মারক পত্রিকা অর্ধ পৃষ্ঠা (₹3,000)">পত্রিকা হাফ পেজ (₹3k)</option>
+              <option value="মণ্ডপ গেট তোরণ স্পনসর (₹25,000)">গেট তোরণ (₹25k)</option>
+              <option value="ওয়েবসাইট ডিজিটাল ব্যানার (₹2,500)">ওয়েব ব্যানার (₹2.5k)</option>
+              <option value="ভোগ অনুদান কুপন">ভোগ অনুদান কুপন</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs text-amber-200 mb-1">বিশেষ নির্দেশিকা / কোনো বার্তা</label>
+          <textarea id="biz-notes" rows="2" class="w-full bg-black/60 border border-white/20 rounded-xl px-4 py-2 text-white focus:outline-none focus:border-festiveGold" placeholder="বিজ্ঞাপন লোগো বা বিবরণ..."></textarea>
+        </div>
+
+        <button type="submit" class="w-full py-3 rounded-xl bg-gradient-to-r from-festiveRed via-amber-600 to-yellow-500 text-black font-bold font-bengali shadow-lg hover:brightness-110 transition">
+          অনলাইন আবেদন জমা দিন
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Notification Toast -->
+  <div id="toast" class="fixed bottom-6 right-6 z-50 glass-panel border border-festiveGold px-5 py-3 rounded-xl text-amber-200 font-bengali text-sm shadow-2xl transform translate-y-24 opacity-0 transition-all duration-300 flex items-center gap-3">
+    <i id="toast-icon" class="fa-solid fa-circle-check text-festiveGold text-lg"></i>
+    <span id="toast-message">সফলভাবে বার্তা পাঠানো হয়েছে!</span>
+  </div>
+
+  <script>
+    // --- State and Variables ---
+    let antigravityActive = false;
+    let audioPlaying = false;
+    let audioContext = null;
+    let dhaakLoopTimer = null;
+
+    // --- Audio Synthesis: Festive Dhaak & Kanshi Rhythm using Web Audio API ---
+    function initFestiveAudio() {
+      if (!audioContext) {
+        const AudioCtx = window.AudioContext || window.webkitAudioContext;
+        audioContext = new AudioCtx();
+      }
+      if (audioContext.state === 'suspended') {
+        audioContext.resume();
+      }
+    }
+
+    function playDhaakStroke(isLoud = false) {
+      if (!audioContext) return;
+      
+      const now = audioContext.currentTime;
+      // Dhaak body drum oscillator (pitched membrane resonance)
+      const osc = audioContext.createOscillator();
+      const gain = audioContext.createGain();
+      
+      osc.type = 'triangle';
+      const baseFreq = isLoud ? 140 : 105;
+      osc.frequency.setValueAtTime(baseFreq, now);
+      osc.frequency.exponentialRampToValueAtTime(45, now + 0.18);
+
+      gain.gain.setValueAtTime(isLoud ? 0.9 : 0.6, now);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.22);
+
+      osc.connect(gain);
+      gain.connect(audioContext.destination);
+
+      osc.start(now);
+      osc.stop(now + 0.25);
+
+      // Noise layer for snare stick strike
+      const bufferSize = audioContext.sampleRate * 0.05;
+      const buffer = audioContext.createBuffer(1, bufferSize, audioContext.sampleRate);
+      const output = buffer.getChannelData(0);
+      for (let i = 0; i < bufferSize; i++) {
+        output[i] = Math.random() * 2 - 1;
+      }
+      const whiteNoise = audioContext.createBufferSource();
+      whiteNoise.buffer = buffer;
+      const noiseGain = audioContext.createGain();
+      noiseGain.gain.setValueAtTime(isLoud ? 0.4 : 0.2, now);
+      noiseGain.gain.exponentialRampToValueAtTime(0.001, now + 0.08);
+
+      whiteNoise.connect(noiseGain);
+      noiseGain.connect(audioContext.destination);
+
+      whiteNoise.start(now);
+    }
+
+    function playKanshiStroke() {
+      if (!audioContext) return;
+      const now = audioContext.currentTime;
+      // Metallic kanshi high bell tone
+      const osc1 = audioContext.createOscillator();
+      const osc2 = audioContext.createOscillator();
+      const gain = audioContext.createGain();
+
+      osc1.type = 'sine';
+      osc2.type = 'sine';
+      osc1.frequency.setValueAtTime(1180, now);
+      osc2.frequency.setValueAtTime(1775, now);
+
+      gain.gain.setValueAtTime(0.12, now);
+      gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.4);
+
+      osc1.connect(gain);
+      osc2.connect(gain);
+      gain.connect(audioContext.destination);
+
+      osc1.start(now);
+      osc2.start(now);
+      osc1.stop(now + 0.45);
+      osc2.stop(now + 0.45);
+    }
+
+    // Classic Bengali Dhaaker Bol pattern loop (Dhaak-Kashi rhythm)
+    let step = 0;
+    function startDhaakSequence() {
+      // 16-step rhythm pattern
+      // 1 = loud dhaak, 2 = soft dhaak, 3 = kanshi
+      const pattern = [1, 0, 2, 3, 1, 0, 2, 3, 1, 1, 0, 2, 1, 0, 3, 2];
+      
+      dhaakLoopTimer = setInterval(() => {
+        const hit = pattern[step % pattern.length];
+        if (hit === 1) {
+          playDhaakStroke(true);
+        } else if (hit === 2) {
+          playDhaakStroke(false);
+        } else if (hit === 3) {
+          playKanshiStroke();
+          playDhaakStroke(false);
+        }
+        step++;
+      }, 160);
+    }
+
+    function stopDhaakSequence() {
+      clearInterval(dhaakLoopTimer);
+      dhaakLoopTimer = null;
+    }
+
+    document.getElementById('dhaak-btn').addEventListener('click', () => {
+      initFestiveAudio();
+      audioPlaying = !audioPlaying;
+      const icon = document.getElementById('dhaak-icon');
+      if (audioPlaying) {
+        startDhaakSequence();
+        icon.className = 'fa-solid fa-volume-high text-yellow-300 animate-bounce';
+        showToast('উৎসবের ঢাকের বাদ্য শুরু হয়েছে!', 'fa-music');
+      } else {
+        stopDhaakSequence();
+        icon.className = 'fa-solid fa-volume-xmark text-festiveGold';
+        showToast('বাদ্য নিঃশব্দ করা হয়েছে।', 'fa-volume-xmark');
+      }
+    });
+
+    const stage = document.getElementById('brochure-stage');
+    const flyerFront = document.getElementById('flyer-front');
+    const flyerBack = document.getElementById('flyer-back');
+
+    let mouseX = 0, mouseY = 0;
+    let targetRotX = 0, targetRotY = 0;
+    let currRotX = 0, currRotY = 0;
+
+    window.addEventListener('mousemove', (e) => {
+      if (antigravityActive) return; // Physics handles this during zero-g
+      const { innerWidth, innerHeight } = window;
+      mouseX = (e.clientX / innerWidth) - 0.5;
+      mouseY = (e.clientY / innerHeight) - 0.5;
+
+      targetRotY = mouseX * 35; // horizontal tilt range
+      targetRotX = -mouseY * 35; // vertical tilt range
+    });
+
+    // Touch device support for card tilting
+    window.addEventListener('touchmove', (e) => {
+      if (antigravityActive || !e.touches[0]) return;
+      const t = e.touches[0];
+      const { innerWidth, innerHeight } = window;
+      mouseX = (t.clientX / innerWidth) - 0.5;
+      mouseY = (t.clientY / innerHeight) - 0.5;
+      targetRotY = mouseX * 30;
+      targetRotX = -mouseY * 30;
+    }, { passive: true });
+
+    function render3DTilt() {
+      if (!antigravityActive) {
+        currRotX += (targetRotX - currRotX) * 0.08;
+        currRotY += (targetRotY - currRotY) * 0.08;
+
+        // Front Card
+        flyerFront.style.transform = `rotateX(${currRotX + 4}deg) rotateY(${currRotY + 8}deg) translateZ(45px) translateY(-5px)`;
+        // Back Card counter-tilt
+        flyerBack.style.transform = `rotateX(${currRotX * 0.7 - 6}deg) rotateY(${currRotY * 0.7 - 12}deg) translateZ(-40px) translateX(-35px) translateY(25px)`;
+      }
+      requestAnimationFrame(render3DTilt);
+    }
+    render3DTilt();
+
+    const ambientCanvas = document.getElementById('ambient-canvas');
+    const actx = ambientCanvas.getContext('2d');
+    let particles = [];
+
+    function resizeAmbientCanvas() {
+      ambientCanvas.width = window.innerWidth;
+      ambientCanvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeAmbientCanvas);
+    resizeAmbientCanvas();
+
+    class Particle {
+      constructor() {
+        this.reset();
+      }
+      reset() {
+        this.x = Math.random() * ambientCanvas.width;
+        this.y = ambientCanvas.height + 20;
+        this.size = Math.random() * 3 + 1;
+        this.speedY = Math.random() * 1.5 + 0.4;
+        this.speedX = (Math.random() - 0.5) * 0.8;
+        this.opacity = Math.random() * 0.7 + 0.2;
+        this.type = Math.random() > 0.4 ? 'spark' : 'kash'; // spark dust or white petal
+      }
+      update() {
+        this.y -= this.speedY;
+        this.x += this.speedX + Math.sin(this.y * 0.01) * 0.4;
+        if (this.y < -20) {
+          this.reset();
+        }
+      }
+      draw() {
+        actx.save();
+        if (this.type === 'spark') {
+          actx.fillStyle = `rgba(251, 191, 36, ${this.opacity})`;
+          actx.shadowBlur = 8;
+          actx.shadowColor = '#f59e0b';
+          actx.beginPath();
+          actx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+          actx.fill();
+        } else {
+          // Kash flower / petal drifting
+          actx.fillStyle = `rgba(255, 255, 255, ${this.opacity * 0.8})`;
+          actx.beginPath();
+          actx.ellipse(this.x, this.y, this.size * 2, this.size * 0.9, Math.PI / 4, 0, Math.PI * 2);
+          actx.fill();
+        }
+        actx.restore();
+      }
+    }
+
+    for (let i = 0; i < 45; i++) {
+      const p = new Particle();
+      p.y = Math.random() * ambientCanvas.height; // distribute initially
+      particles.push(p);
+    }
+
+    function animateAmbient() {
+      actx.clearRect(0, 0, ambientCanvas.width, ambientCanvas.height);
+      for (let p of particles) {
+        p.update();
+        p.draw();
+      }
+      requestAnimationFrame(animateAmbient);
+    }
+    animateAmbient();
+
+    const gCanvas = document.getElementById('antigravity-canvas');
+    const gctx = gCanvas.getContext('2d');
+    let zeroGObjects = [];
+    let isDraggingObj = null;
+    let mousePos = { x: -1000, y: -1000 };
+
+    function resizeGCanvas() {
+      gCanvas.width = window.innerWidth;
+      gCanvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeGCanvas);
+    resizeGCanvas();
+
+    // Antigravity floating entities: Glowing Diyas, Puja Lotus, Dhunuchi, and Brochures
+    class FloatingZeroGEntity {
+      constructor(x, y, type) {
+        this.x = x;
+        this.y = y;
+        this.vx = (Math.random() - 0.5) * 2;
+        this.vy = -(Math.random() * 2 + 1);
+        this.radius = type === 'brochure' ? 65 : 32;
+        this.type = type; // 'diya', 'lotus', 'brochure', 'dhunuchi'
+        this.rotation = Math.random() * Math.PI * 2;
+        this.rotSpeed = (Math.random() - 0.5) * 0.03;
+      }
+      update() {
+        // Antigravity upward buoyancy and slight drag
+        this.vy -= 0.02; // negative gravity (upward float)
+        this.vx *= 0.995;
+        this.vy *= 0.995;
+
+        // Terminal floating speed
+        if (this.vy < -3.5) this.vy = -3.5;
+
+        this.x += this.vx;
+        this.y += this.vy;
+        this.rotation += this.rotSpeed;
+
+        // Repel from mouse cursor
+        const dx = this.x - mousePos.x;
+        const dy = this.y - mousePos.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < 140 && dist > 0) {
+          const force = (140 - dist) / 140;
+          this.vx += (dx / dist) * force * 1.5;
+          this.vy += (dy / dist) * force * 1.5;
+        }
+
+        // Screen boundary wraparound
+        if (this.y < -80) {
+          this.y = gCanvas.height + 60;
+          this.x = Math.random() * gCanvas.width;
+        }
+        if (this.x < -60) this.x = gCanvas.width + 50;
+        if (this.x > gCanvas.width + 60) this.x = -50;
+      }
+      draw() {
+        gctx.save();
+        gctx.translate(this.x, this.y);
+        gctx.rotate(this.rotation);
+
+        if (this.type === 'diya') {
+          // Floating Golden Diya
+          gctx.fillStyle = '#b45309';
+          gctx.beginPath();
+          gctx.arc(0, 5, 20, 0, Math.PI);
+          gctx.fill();
+          // flame glow
+          gctx.fillStyle = '#fef08a';
+          gctx.shadowColor = '#f59e0b';
+          gctx.shadowBlur = 18;
+          gctx.beginPath();
+          gctx.ellipse(0, -6, 6, 12, 0, 0, Math.PI * 2);
+          gctx.fill();
+        } else if (this.type === 'lotus') {
+          // Floating Pink Puja Lotus
+          gctx.fillStyle = '#f43f5e';
+          gctx.beginPath();
+          for (let i = 0; i < 6; i++) {
+            gctx.rotate(Math.PI / 3);
+            gctx.ellipse(0, 10, 8, 16, 0, 0, Math.PI * 2);
+          }
+          gctx.fill();
+          gctx.fillStyle = '#fbbf24';
+          gctx.beginPath();
+          gctx.arc(0, 0, 6, 0, Math.PI * 2);
+          gctx.fill();
+        } else if (this.type === 'brochure') {
+          // Mini Floating Crimson Brochure Mockup
+          gctx.fillStyle = '#9d0208';
+          gctx.shadowColor = '#d90429';
+          gctx.shadowBlur = 15;
+          gctx.strokeStyle = '#f59e0b';
+          gctx.lineWidth = 2;
+          gctx.fillRect(-35, -50, 70, 100);
+          gctx.strokeRect(-35, -50, 70, 100);
+          
+          gctx.fillStyle = '#ffe082';
+          gctx.font = '10px "Hind Siliguri", sans-serif';
+          gctx.textAlign = 'center';
+          gctx.fillText('শারদোৎসব', 0, -20);
+          gctx.beginPath();
+          gctx.arc(0, 5, 12, 0, Math.PI * 2);
+          gctx.fill();
+          gctx.fillStyle = '#000';
+          gctx.arc(0, 5, 4, 0, Math.PI * 2);
+          gctx.fill();
+        } else {
+          // Dhunuchi (clay incense burner)
+          gctx.fillStyle = '#78350f';
+          gctx.beginPath();
+          gctx.moveTo(-15, -15);
+          gctx.lineTo(15, -15);
+          gctx.lineTo(6, 15);
+          gctx.lineTo(-6, 15);
+          gctx.closePath();
+          gctx.fill();
+          // Smoke puff
+          gctx.fillStyle = 'rgba(255, 255, 255, 0.4)';
+          gctx.beginPath();
+          gctx.arc(0, -25, 9, 0, Math.PI * 2);
+          gctx.fill();
+        }
+
+        gctx.restore();
+      }
+    }
+
+    function initZeroGSimulation() {
+      zeroGObjects = [];
+      const types = ['diya', 'lotus', 'brochure', 'dhunuchi', 'diya', 'lotus'];
+      for (let i = 0; i < 22; i++) {
+        const type = types[i % types.length];
+        zeroGObjects.push(new FloatingZeroGEntity(
+          Math.random() * gCanvas.width,
+          Math.random() * gCanvas.height,
+          type
+        ));
+      }
+    }
+
+    function animateZeroG() {
+      if (!antigravityActive) return;
+      gctx.clearRect(0, 0, gCanvas.width, gCanvas.height);
+      for (let obj of zeroGObjects) {
+        obj.update();
+        obj.draw();
+      }
+      requestAnimationFrame(animateZeroG);
+    }
+
+    // Toggle Antigravity Mode
+    const gravityToggleBtn = document.getElementById('gravity-toggle-btn');
+    const gravityStatusText = document.getElementById('gravity-status-text');
+
+    gravityToggleBtn.addEventListener('click', () => {
+      antigravityActive = !antigravityActive;
+      if (antigravityActive) {
+        gCanvas.classList.remove('hidden');
+        gravityToggleBtn.classList.add('ring-4', 'ring-yellow-400');
+        gravityStatusText.innerText = 'স্বাভাবিক মোড';
+        initZeroGSimulation();
+        animateZeroG();
+        showToast('Antigravity Mode Activated! কার্ড ও প্রদীপগুলি স্পর্শ বা ড্র্যাগ করুন।', 'fa-wand-magic-sparkles');
+      } else {
+        gCanvas.classList.add('hidden');
+        gravityToggleBtn.classList.remove('ring-4', 'ring-yellow-400');
+        gravityStatusText.innerText = 'Zero-G মোড';
+        showToast('সাধারণ মোডে ফিরে আসা হয়েছে।', 'fa-globe');
+      }
+    });
+
+    // Antigravity Mouse/Touch Interaction
+    gCanvas.addEventListener('mousemove', (e) => {
+      mousePos.x = e.clientX;
+      mousePos.y = e.clientY;
+    });
+
+    gCanvas.addEventListener('mousedown', (e) => {
+      // Create sudden repulsion burst where clicked
+      triggerAntigravityImpulse(e.clientX, e.clientY);
+    });
+
+    gCanvas.addEventListener('touchmove', (e) => {
+      if (e.touches[0]) {
+        mousePos.x = e.touches[0].clientX;
+        mousePos.y = e.touches[0].clientY;
+      }
+    }, { passive: true });
+
+    function triggerAntigravityImpulse(x = window.innerWidth / 2, y = window.innerHeight / 2) {
+      if (!antigravityActive) {
+        // If not active, turn on and impulse
+        gravityToggleBtn.click();
+      }
+      for (let obj of zeroGObjects) {
+        const dx = obj.x - x;
+        const dy = obj.y - y;
+        const dist = Math.max(Math.sqrt(dx * dx + dy * dy), 10);
+        obj.vx += (dx / dist) * 12;
+        obj.vy += (dy / dist) * 12;
+      }
+      // flyer card shake impulse
+      flyerFront.style.transform = `translateZ(120px) rotateX(15deg) rotateY(-20deg)`;
+      setTimeout(() => {
+        flyerFront.style.transform = '';
+      }, 600);
+    }
+
+    function updateCountdown() {
+      // Set to Mahashtami Puja Date 2026 (approx October 18, 2026 09:30 AM IST)
+      const targetDate = new Date('October 18, 2026 09:30:00 GMT+0530').getTime();
+      const now = new Date().getTime();
+      const diff = targetDate - now;
+
+      if (diff > 0) {
+        const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const s = Math.floor((diff % (1000 * 60)) / 1000);
+
+        document.getElementById('days').innerText = String(d).padStart(2, '0');
+        document.getElementById('hours').innerText = String(h).padStart(2, '0');
+        document.getElementById('minutes').innerText = String(m).padStart(2, '0');
+        document.getElementById('seconds').innerText = String(s).padStart(2, '0');
+      } else {
+        document.getElementById('days').innerText = '০০';
+        document.getElementById('hours').innerText = '০০';
+        document.getElementById('minutes').innerText = '০০';
+        document.getElementById('seconds').innerText = '০০';
+      }
+    }
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+
+    let animatedCounters = false;
+    function animateCountersOnScroll() {
+      const counters = document.querySelectorAll('.counter-value');
+      const triggerBottom = window.innerHeight * 0.9;
+      
+      counters.forEach(counter => {
+        const top = counter.getBoundingClientRect().top;
+        if (top < triggerBottom && !animatedCounters) {
+          const target = +counter.getAttribute('data-target');
+          let count = 0;
+          const speed = target / 40;
+          const update = () => {
+            count += speed;
+            if (count < target) {
+              counter.innerText = Math.ceil(count);
+              requestAnimationFrame(update);
+            } else {
+              counter.innerText = target + '+';
+            }
+          };
+          update();
+        }
+      });
+      if (counters[0] && counters[0].getBoundingClientRect().top < triggerBottom) {
+        animatedCounters = true;
+      }
+    }
+    window.addEventListener('scroll', animateCountersOnScroll);
+
+    function openBookingModal(title = 'বিজ্ঞাপন ও সহযোগিতা স্লট বুকিং') {
+      document.getElementById('modal-title').innerText = title;
+      document.getElementById('booking-modal').classList.remove('hidden');
+    }
+
+    function closeBookingModal() {
+      document.getElementById('booking-modal').classList.add('hidden');
+    }
+
+    function showToast(message, icon = 'fa-circle-check') {
+      const toast = document.getElementById('toast');
+      const toastMsg = document.getElementById('toast-message');
+      const toastIcon = document.getElementById('toast-icon');
+
+      toastMsg.innerText = message;
+      toastIcon.className = `fa-solid ${icon} text-festiveGold text-lg`;
+
+      toast.classList.remove('translate-y-24', 'opacity-0');
+      setTimeout(() => {
+        toast.classList.add('translate-y-24', 'opacity-0');
+      }, 4000);
+    }
+
+    function handleBookingSubmit(e) {
+      e.preventDefault();
+      const bizName = document.getElementById('biz-name').value;
+      closeBookingModal();
+      showToast(`ধন্যবাদ ${bizName}! আপনার স্লট বুকিং রিকোয়েস্ট গৃহীত হয়েছে।`, 'fa-circle-check');
+      e.target.reset();
+    }
+
+    function handleMessageSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('contact-name').value;
+      showToast(`ধন্যবাদ ${name}! আপনার বার্তাটি ক্লাবের কর্মকর্তাদের কাছে পাঠানো হয়েছে।`, 'fa-paper-plane');
+      e.target.reset();
+    }
+
+    // Mobile nav toggle
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Close mobile nav when clicking a link
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+    });
+  </script>
+</body>
+</html>
