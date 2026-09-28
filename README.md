@@ -1,29 +1,39 @@
-# Durga Puja Template (শারদীয় দুর্গোৎসব ও ক্লাব কার্যক্রম)
+# কামালপুর অভিযান সংঘ (Kamalpur Abhijaan Sangha) — শারদীয় দুর্গোৎসব ২০২৭
 
-A responsive, festive website template designed for Durga Puja celebrations and club activities, built with HTML5, Tailwind CSS, Font Awesome, and Google Fonts.
+উত্তর ব্যারাকপুরের ঐতিহ্যবাহী সামাজিক, সাংস্কৃতিক ও ক্রীড়া সংস্থা **কামালপুর অভিযান সংঘ** (Estd. 1952, Reg No: S/54028)-এর শারদীয় দুর্গোৎসব ২০২৭ (৭৫তম বর্ষ মহোৎসব) এবং সমাজকল্যাণ কার্যক্রমের অফিশিয়াল ওয়েবসাইট।
 
-## ✨ Features
+## ✨ মূল বৈশিষ্ঠ্য ও কাঠামো
 
-- **Festive Aesthetic**: Custom crimson, red, and gold theme with Bengali typography (`Hind Siliguri` & `Cinzel Decorative`).
-- **Responsive Layout**: Optimized for mobile, tablet, and desktop viewports.
-- **Interactive Components**:
-  - Hero banner with festive imagery and call-to-actions
-  - Puja itinerary & schedule
-  - Photo gallery & event highlights
-  - Donation / subscription forms & contact info
-- **Lightweight**: Pure HTML and client-side styling/scripts, easy to host directly on GitHub Pages, Netlify, or Vercel.
+- **নান্দনিক ডিজাইন ও টাইপোগ্রাফি**: প্রিমিয়াম নেভি স্লেট ও টেরাকোটা গোল্ড থিম, `Cormorant Garamond`, `Plus Jakarta Sans` এবং `Noto Serif Bengali` ফন্ট সমন্বয়।
+- **স্বাগত অ্যানিমেশন (Intro Overlay)**: ক্লাবের প্রতীকচিহ্ন ও ৭৫ বছরের ঐতিহ্য সংবলিত মার্জিত এন্ট্রান্স অ্যানিমেশন।
+- **শারদীয় দুর্গোৎসব ২০২৭ স্পটলাইট**:
+  - মহাষষ্ঠী থেকে শুভ বিজয়া দশমী (৬–১০ অক্টোবর ২০২৭) বিস্তারিত নির্ঘণ্ট
+  - আমন্ত্রিত সঙ্গীত ও নাট্যশিল্পীদের পরিচিতি ও ফ্লাইয়ার
+  - পূজা স্মরণিকা ও বিজ্ঞাপন বুকিং
+- **আমাদের কথা ও চার মূল স্তম্ভ (4 Pillars)**:
+  - 🎭 সংস্কৃতি ও ঐতিহ্য
+  - 🤝 নিঃস্বার্থ সমাজসেবা (বার্ষিক রক্তদান ও স্বাস্থ্য শিবির)
+  - ⚽ ক্রীড়া ও শরীরচর্চা (অভিযান ফুটবল শিল্ড ও ক্রিকেট)
+  - 🌱 যুব বিকাশ ও পাঠাগার (নেতাজী সুভাষ পাঠাগার ও শিক্ষাবৃত্তি)
+- **কর্মসূচি ক্যালেন্ডার (Dual-Tab Carousel)**:
+  - সাংস্কৃতিক ও শারদ উৎসব
+  - সমাজসেবা ও খেলাধুলার কর্মসূচি
+- **সভাপতির বার্তা (President's Desk)**: সুব্রত ভট্টাচার্য (সভাপতি, ২০২৫–২০২৭)-এর শুভেচ্ছা ও দৃষ্টিভঙ্গি।
+- **ঐতিহ্য টাইমলাইন (Heritage & Numbers)**: ১৯৫২ সালের সূচনা থেকে ২০২৭-এর প্ল্যাটিনাম জুবিলির গৌরবগাথা।
+- **অনুদানের আবেদন ও চাঁদা সংগ্রহ (Donation & UPI)**: ইউপিআই ও অনলাইন অনুদানের সুবিধা এবং পাকা রসিদ।
+- **সদস্যপদ গ্রহণ পোর্টাল**: সাধারণ, আজীবন ও প্রবাসী সদস্যপদের অনলাইন আবেদনপত্র।
+- **পূর্ণাঙ্গ ফুটার**: সভাপতি ও সাধারণ সম্পাদকের ফোন, ইমেইল, ব্যারাকপুরের পূর্ণাঙ্গ ঠিকানা ও গুগল ম্যাপস লিঙ্ক।
 
-## 🚀 Quick Start
+## 🚀 দ্রুত ব্যবহারের নিয়ম
 
-1. Clone the repository:
+1. রিপোজিটরি ক্লোন করুন:
    ```bash
    git clone https://github.com/Souyash/puja-template.git
    ```
-2. Open `index.html` directly in your browser or run a local web server:
+2. সরাসরি ব্রাউজারে `index.html` খুলুন অথবা লোকাল সার্ভারে চালান:
    ```bash
    npx serve .
    ```
 
-## 📄 License
-
-MIT License. Feel free to customize and use it for your club or community Durga Puja celebration!
+## 📄 লাইসেন্স
+MIT License.

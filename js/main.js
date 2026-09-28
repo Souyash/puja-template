@@ -1,6 +1,6 @@
 /**
- * KALLOL OF NEW JERSEY — JAVASCRIPT LOGIC
- * Based on https://kallol.com/#about
+ * KAMALPUR ABHIJAAN SANGHA — JAVASCRIPT LOGIC
+ * শারদীয় দুর্গোৎসব ২০২৭ & ক্লাব কার্যক্রম
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -210,14 +210,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const donateModal = document.getElementById('donation-modal');
   const modalAmtDisplay = document.getElementById('modal-donation-amount');
 
-  let selectedAmount = '100';
-  let selectedFrequency = 'one-time';
+  let selectedAmount = '1000';
+  let selectedFrequency = 'এককালীন অনুদান (One-time)';
 
   amtButtons.forEach(btn => {
     btn.addEventListener('click', () => {
       amtButtons.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
-      selectedAmount = btn.dataset.amount || '100';
+      selectedAmount = btn.dataset.amount || '1000';
       if (customInput) customInput.value = '';
     });
   });
@@ -233,14 +233,14 @@ document.addEventListener('DOMContentLoaded', () => {
     btn.addEventListener('click', () => {
       freqButtons.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
-      selectedFrequency = btn.dataset.freq || 'one-time';
+      selectedFrequency = btn.dataset.freq === 'monthly' ? 'মাসিক অনুদান (Monthly)' : 'এককালীন অনুদান (One-time)';
     });
   });
 
   window.openDonationForm = function() {
     if (donateModal) {
       if (modalAmtDisplay) {
-        modalAmtDisplay.textContent = `$${selectedAmount || '100'} (${selectedFrequency})`;
+        modalAmtDisplay.textContent = `₹${selectedAmount || '1000'} · ${selectedFrequency}`;
       }
       donateModal.classList.add('open');
       document.body.style.overflow = 'hidden';
@@ -272,13 +272,13 @@ document.addEventListener('DOMContentLoaded', () => {
       const submitBtn = joinForm.querySelector('.form-submit');
       if (submitBtn) {
         submitBtn.disabled = true;
-        submitBtn.innerHTML = 'Submitting application...';
+        submitBtn.innerHTML = 'আবেদন জমা দেওয়া হচ্ছে...';
       }
 
       setTimeout(() => {
         joinForm.style.display = 'none';
         joinSuccess.style.display = 'block';
-      }, 1000);
+      }, 900);
     });
   }
 });
