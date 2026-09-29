@@ -1,10 +1,22 @@
 /**
  * KAMALPUR ABHIJAAN SANGHA — JAVASCRIPT LOGIC
- * শারদীয় দুর্গোৎসব ২০২৭ & ক্লাব কার্যক্রম
+ * Apple-inspired Fluid Interactions, 3D Perspective Tilt,
+ * Dynamic Spotlight & Parallax Depth Physics
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  // ── Intro Overlay ──
+  // ── 1. Apple-style Scroll Progress Bar ──
+  const progressBar = document.getElementById('scroll-progress');
+  function updateScrollProgress() {
+    if (!progressBar) return;
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    progressBar.style.width = `${scrolled}%`;
+  }
+  window.addEventListener('scroll', updateScrollProgress, { passive: true });
+
+  // ── 2. Apple Keynote Intro Overlay ──
   const introOverlay = document.getElementById('intro-overlay');
   const skipBtn = document.getElementById('intro-skip-btn');
 
@@ -17,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Dismiss intro after 3.2 seconds or when skip button is clicked
+  // Auto-dismiss or dismiss on button click
   if (introOverlay) {
     setTimeout(dismissIntro, 3200);
     if (skipBtn) {
@@ -25,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // ── Floating particles for intro ──
+  // Floating ambient particles for intro
   const introParticles = document.getElementById('intro-particles');
   if (introParticles) {
     for (let i = 0; i < 35; i++) {
@@ -43,15 +55,31 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // ── Sticky Elevated Nav ──
+  // ── 3. Apple Frosted Glass Sticky Nav ──
   const nav = document.getElementById('nav');
   window.addEventListener('scroll', () => {
     if (nav) {
       nav.classList.toggle('elevated', window.scrollY > 20);
     }
-  });
+  }, { passive: true });
 
-  // ── Mobile Menu Toggle ──
+  // ── 4. Apple Parallax Hero Depth ──
+  const heroImg = document.querySelector('.hero-img');
+  const heroContent = document.querySelector('.hero-content');
+  window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+    if (scrollY < 800) {
+      if (heroImg) {
+        heroImg.style.transform = `translate3d(0, ${scrollY * 0.28}px, 0) scale(${1 + scrollY * 0.00015})`;
+      }
+      if (heroContent) {
+        heroContent.style.transform = `translate3d(0, ${scrollY * 0.12}px, 0)`;
+        heroContent.style.opacity = `${Math.max(0, 1 - scrollY / 700)}`;
+      }
+    }
+  }, { passive: true });
+
+  // ── 5. Mobile Menu Toggle ──
   const menuBtn = document.getElementById('menuBtn');
   const navLinks = document.getElementById('navLinks');
   if (menuBtn && navLinks) {
@@ -61,7 +89,6 @@ document.addEventListener('DOMContentLoaded', () => {
       menuBtn.innerHTML = isOpen ? '✕' : '☰';
     });
 
-    // Close menu when clicking link
     navLinks.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         navLinks.classList.remove('open');
@@ -71,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ── Scrollspy for active nav link ──
+  // ── 6. Scrollspy for Active Navigation Link ──
   const sections = document.querySelectorAll('section[id]');
   const allNavLinks = document.querySelectorAll('.nav-link');
   window.addEventListener('scroll', () => {
@@ -88,9 +115,9 @@ document.addEventListener('DOMContentLoaded', () => {
       const href = link.getAttribute('href');
       link.classList.toggle('active', href === `#${currentId}`);
     });
-  });
+  }, { passive: true });
 
-  // ── Scroll Reveal via IntersectionObserver ──
+  // ── 7. Apple Spring Scroll Reveals via IntersectionObserver ──
   const revealElements = document.querySelectorAll('.reveal');
   const revealObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
@@ -103,7 +130,37 @@ document.addEventListener('DOMContentLoaded', () => {
 
   revealElements.forEach(el => revealObserver.observe(el));
 
-  // ── Dual Tab Event Switcher ──
+  // ── 8. Apple VisionOS / Apple TV 3D Tilt & Specular Spotlight on Cards ──
+  const tiltCardSelectors = '.ev-card, .pillar, .vendor-card, .hnum-card, .ds-flyer-card, .pres-img-frame';
+  const tiltCards = document.querySelectorAll(tiltCardSelectors);
+
+  tiltCards.forEach(card => {
+    card.classList.add('apple-card');
+
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      // Update cursor coordinates for specular spotlight overlay
+      card.style.setProperty('--mouse-x', `${x}px`);
+      card.style.setProperty('--mouse-y', `${y}px`);
+
+      // Calculate subtle 3D tilt angles (max ±7 degrees)
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      const rotateX = ((y - centerY) / centerY) * -6;
+      const rotateY = ((x - centerX) / centerX) * 6;
+
+      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px) scale3d(1.02, 1.02, 1.02)`;
+    });
+
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0) scale3d(1, 1, 1)';
+    });
+  });
+
+  // ── 9. Dual Tab Event Switcher ──
   window.switchTab = function(type) {
     const panelC = document.getElementById('panel-c');
     const panelS = document.getElementById('panel-s');
@@ -131,7 +188,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  // ── Multi-Slide Responsive Carousel ──
+  // ── 10. Multi-Slide Responsive Carousel ──
   const carousels = {};
 
   function getVisibleCount() {
@@ -197,13 +254,12 @@ document.addEventListener('DOMContentLoaded', () => {
   initCarousel('cc', false);
   initCarousel('sc', true);
 
-  // Recalculate on window resize
   window.addEventListener('resize', () => {
     initCarousel('cc', false);
     initCarousel('sc', true);
-  });
+  }, { passive: true });
 
-  // ── Donation Card Interaction ──
+  // ── 11. Donation Card Interaction & Apple Modal ──
   const amtButtons = document.querySelectorAll('.amt-btn');
   const customInput = document.getElementById('custom-donation-input');
   const freqButtons = document.querySelectorAll('.freq-btn');
@@ -262,7 +318,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ── Membership Application Form ──
+  // ── 12. Membership Application Form Submission ──
   const joinForm = document.getElementById('join-form');
   const joinSuccess = document.getElementById('join-success');
 
