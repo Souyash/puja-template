@@ -33,14 +33,14 @@
       <div class="intro-emblem-fallback" style="display:block;">ক</div>
     </div>
     <div class="intro-name"><em>Kamalpur</em> Abhijaan Sangha</div>
-    <div class="intro-tagline">কামালপুর অভিযান সংঘ &nbsp;·&nbsp; Estd. 1952</div>
+    <div class="intro-tagline" data-i18n-html="intro_tagline">কামালপুর অভিযান সংঘ &nbsp;·&nbsp; Estd. 1952</div>
     <div class="intro-bar"></div>
-    <div class="intro-year">শারদীয় দুর্গোৎসব ২০২৭ ও ৭৫ বছরের ঐতিহ্য ও সমাজসেবা</div>
-    <button type="button" class="intro-skip-btn" id="intro-skip-btn">সরাসরি প্রবেশ করুন ➔</button>
+    <div class="intro-year" data-i18n="intro_year">শারদীয় দুর্গোৎসব ২০২৭ ও ৭৫ বছরের ঐতিহ্য ও সমাজসেবা</div>
+    <button type="button" class="intro-skip-btn" id="intro-skip-btn" data-i18n="intro_skip">সরাসরি প্রবেশ করুন ➔</button>
   </div>
 
   <!-- ══════════ ANNOUNCEMENT BAR ══════════ -->
-  <div class="announce-bar">
+  <div class="announce-bar" data-i18n-html="announce_bar">
     <strong>কামালপুর অভিযান সংঘ</strong> শারদীয় দুর্গোৎসব ২০২৭ — ৭৫তম বর্ষের মহোৎসব!
     &nbsp;·&nbsp;
     <a href="#events">পূজা নির্ঘণ্ট ও সাংস্কৃতিক অনুষ্ঠান দেখুন →</a>
@@ -54,32 +54,42 @@
       </div>
       <div>
         <span class="nav-name">Kamalpur Abhijaan Sangha</span>
-        <span class="nav-est">Estd. 1952 · উত্তর ব্যারাকপুর</span>
+        <span class="nav-est" data-i18n="nav_est">Estd. 1952 · উত্তর ব্যারাকপুর</span>
       </div>
     </a>
 
-    <button class="menu-btn" id="menuBtn" type="button" aria-label="Toggle navigation menu" aria-expanded="false">
-      ☰
-    </button>
+    <div class="nav-actions">
+      <!-- Apple Segmented Language Switcher -->
+      <div class="lang-switch" role="group" aria-label="Language Switcher">
+        <button type="button" class="lang-btn active" data-lang="bn" onclick="setLanguage('bn')">বাংলা</button>
+        <button type="button" class="lang-btn" data-lang="en" onclick="setLanguage('en')">English</button>
+      </div>
+
+      <button class="menu-btn" id="menuBtn" type="button" aria-label="Toggle navigation menu" aria-expanded="false">
+        ☰
+      </button>
+    </div>
 
     <ul class="nav-links" id="navLinks">
-      <li><a href="#home" class="nav-link active">Home</a></li>
-      <li><a href="#about" class="nav-link">আমাদের কথা</a></li>
-      <li><a href="#upcoming-durga-puja" class="nav-link">দুর্গোৎসব ২০২৭</a></li>
-      <li><a href="#events" class="nav-link">কর্মসূচি</a></li>
-      <li><a href="#president" class="nav-link">সভাপতির বার্তা</a></li>
-      <li><a href="#heritage" class="nav-link">ঐতিহ্য</a></li>
-      <li><a href="#sponsors" class="nav-link">পৃষ্ঠপোষক</a></li>
-      <li><a href="#donate" class="nav-link">অনুদানের আবেদন</a></li>
-      <li><a href="#join" class="nav-cta">সদস্য লগইন</a></li>
-      <li><a href="#join" class="nav-cta secondary">নতুন সদস্য আবেদন</a></li>
+      <li><a href="#home" class="nav-link active" data-i18n="nav_home">Home</a></li>
+      <li><a href="#about" class="nav-link" data-i18n="nav_about">আমাদের কথা</a></li>
+      <li><a href="#upcoming-durga-puja" class="nav-link" data-i18n="nav_puja">দুর্গোৎসব ২০২৭</a></li>
+      <li><a href="#events" class="nav-link" data-i18n="nav_events">কর্মসূচি</a></li>
+      <li><a href="#president" class="nav-link" data-i18n="nav_president">সভাপতির বার্তা</a></li>
+      <li><a href="#heritage" class="nav-link" data-i18n="nav_heritage">ঐতিহ্য</a></li>
+      <li><a href="#sponsors" class="nav-link" data-i18n="nav_sponsors">পৃষ্ঠপোষক</a></li>
+      <li><a href="#donate" class="nav-link" data-i18n="nav_donate">অনুদানের আবেদন</a></li>
+      <li><a href="#join" class="nav-cta" data-i18n="nav_login">সদস্য লগইন</a></li>
+      <li><a href="#join" class="nav-cta secondary" data-i18n="nav_join">নতুন সদস্য আবেদন</a></li>
     </ul>
   </nav>
 
   <!-- ══════════ HERO BANNER ══════════ -->
   <section id="home">
     <div class="hero-img-wrap">
-      <img class="hero-img" src="https://images.unsplash.com/photo-1567157577867-05ccb1388e66?auto=format&fit=crop&w=1800&q=80" alt="Kamalpur Abhijaan Sangha Durga Puja Celebration">
+      <div class="hero-parallax-layer" id="hero-parallax">
+        <img class="hero-img" src="https://images.unsplash.com/photo-1567157577867-05ccb1388e66?auto=format&fit=crop&w=1800&q=80" alt="Kamalpur Abhijaan Sangha Durga Puja Celebration">
+      </div>
       <div class="hero-overlay"></div>
       <div class="hero-stripe"></div>
 
@@ -87,43 +97,43 @@
         <!-- Eyebrow Pill -->
         <div class="hero-eyebrow">
           <span class="hero-pill">Estd. 1952</span>
-          <span class="hero-eyebrow-txt">উত্তর ব্যারাকপুরের গৌরবময় শারদীয় দুর্গোৎসব ২০২৭</span>
+          <span class="hero-eyebrow-txt" data-i18n="hero_eyebrow">উত্তর ব্যারাকপুরের গৌরবময় শারদীয় দুর্গোৎসব ২০২৭</span>
         </div>
 
         <!-- Headline -->
-        <h1 class="hero-h1">
+        <h1 class="hero-h1" data-i18n-html="hero_h1">
           শুধু একটি ক্লাব নয় —<br>
           <em>একটি পরিবার</em>
         </h1>
 
         <!-- Subtitle -->
-        <p class="hero-sub">
+        <p class="hero-sub" data-i18n="hero_sub">
           ঐতিহ্যবাহী শারদীয় দুর্গোৎসব থেকে রক্তদান শিবির, বার্ষিক ফুটবল টুর্নামেন্ট থেকে সাংস্কৃতিক জলসা — কামালপুর অভিযান সংঘ উত্তর ব্যারাকপুরের প্রাণের মিলনমেলা।
         </p>
 
         <!-- Action Buttons -->
         <div class="hero-actions">
-          <a href="#upcoming-durga-puja" class="hero-btn primary">দুর্গোৎসব ২০২৭ বিবরণী →</a>
-          <a href="#about" class="hero-btn ghost">আমাদের ইতিহাস</a>
+          <a href="#upcoming-durga-puja" class="hero-btn primary" data-i18n="hero_btn_puja">দুর্গোৎসব ২০২৭ বিবরণী →</a>
+          <a href="#about" class="hero-btn ghost" data-i18n="hero_btn_about">আমাদের ইতিহাস</a>
         </div>
 
         <!-- Stats Bar -->
         <div class="hero-stats">
           <div class="hstat">
             <div class="hstat-num">75<sup>+</sup></div>
-            <div class="hstat-lbl">বছরের ঐতিহ্য</div>
+            <div class="hstat-lbl" data-i18n="hstat_lbl_1">বছরের ঐতিহ্য</div>
           </div>
           <div class="hstat">
             <div class="hstat-num">1952</div>
-            <div class="hstat-lbl">প্রতিষ্ঠা বর্ষ</div>
+            <div class="hstat-lbl" data-i18n="hstat_lbl_2">প্রতিষ্ঠা বর্ষ</div>
           </div>
           <div class="hstat">
             <div class="hstat-num">500<sup>+</sup></div>
-            <div class="hstat-lbl">সদস্য পরিবার</div>
+            <div class="hstat-lbl" data-i18n="hstat_lbl_3">সদস্য পরিবার</div>
           </div>
           <div class="hstat">
             <div class="hstat-num">25<sup>+</sup></div>
-            <div class="hstat-lbl">সেরা পূজার সম্মাননা</div>
+            <div class="hstat-lbl" data-i18n="hstat_lbl_4">সেরা পূজার সম্মাননা</div>
           </div>
         </div>
       </div>
@@ -131,7 +141,46 @@
       <!-- Scroll Mouse Indicator -->
       <div class="scroll-hint">
         <div class="scroll-mouse"><div class="scroll-dot"></div></div>
-        <div class="scroll-lbl">Scroll</div>
+        <div class="scroll-lbl" data-i18n="scroll_hint">Scroll</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ APPLE KEYNOTE PINNED SCROLL EXPERIENCE ══════════ -->
+  <section class="apple-scroll-section" id="apple-experience">
+    <div class="apple-scroll-sticky">
+      <div class="apple-scrub-eyebrow">
+        <i class="fa-solid fa-sparkles"></i>&nbsp; <span data-i18n="apple_scrub_kicker">শারদীয় দুর্গোৎসব ২০২৭ · ৭৫তম বর্ষ মহোৎসব</span>
+      </div>
+      
+      <h2 class="apple-scrub-h2">
+        <span class="scrub-phrase" id="scrub-p1" data-i18n="apple_p1">সাত দশকের গৌরবময় ঐতিহ্য।</span><br>
+        <span class="scrub-phrase" id="scrub-p2" data-i18n="apple_p2">হৃদয়ের অটুট ভ্রাতৃত্ববোধ।</span><br>
+        <span class="scrub-phrase gold-lit" id="scrub-p3" data-i18n="apple_p3">শারদীয় দুর্গোৎসব ২০২৭ — এক নতুন রূপ।</span>
+      </h2>
+
+      <!-- 3 Apple Spec Cards that glide in with depth -->
+      <div class="apple-features-row">
+        <div class="apple-feat-card" id="apple-feat-1">
+          <div class="apple-feat-icon">🏛️</div>
+          <div class="apple-feat-title" data-i18n="apple_card1_title">নান্দনিক থিম ও আলোকসজ্জা</div>
+          <p class="apple-feat-desc" data-i18n="apple_card1_desc">বাংলার শ্রেষ্ঠ শিল্পীদের দ্বারা রচিত অপরূপ মণ্ডপ ও চন্দননগরের ঐতিহ্যবাহী আলোকসজ্জা।</p>
+          <div class="apple-feat-badge">Masterpiece Pandal</div>
+        </div>
+
+        <div class="apple-feat-card" id="apple-feat-2">
+          <div class="apple-feat-icon">🪔</div>
+          <div class="apple-feat-title" data-i18n="apple_card2_title">মহাপ্রসাদ ও সার্বজনীন অঞ্জলি</div>
+          <p class="apple-feat-desc" data-i18n="apple_card2_desc">পাঁচ দিনব্যাপী সহস্রাধিক ভক্তের মাঝে মহাভোগ বিতরণ ও সুশৃঙ্খল পুণ্য অঞ্জলি।</p>
+          <div class="apple-feat-badge">Sacred Community Bhog</div>
+        </div>
+
+        <div class="apple-feat-card" id="apple-feat-3">
+          <div class="apple-feat-icon">🎵</div>
+          <div class="apple-feat-title" data-i18n="apple_card3_title">প্রখ্যাত শিল্পীদের সান্ধ্য জলসা</div>
+          <p class="apple-feat-desc" data-i18n="apple_card3_desc">লগ্নজিতা, ইমন চক্রবর্তী, লোপামুদ্রা মিত্র ও দোহারের মনমাতানো সঙ্গীতানুষ্ঠান।</p>
+          <div class="apple-feat-badge">Cultural Extravaganza</div>
+        </div>
       </div>
     </div>
   </section>
@@ -140,25 +189,25 @@
   <section class="durga-spotlight" id="upcoming-durga-puja">
     <div class="container ds-grid">
       <div class="reveal">
-        <div class="ds-kicker">আসন্ন মহোৎসব · শারদীয় দুর্গোৎসব ২০২৭</div>
-        <h2 class="ds-title">Durga Puja 2027 <em>কামালপুর অভিযান সংঘ</em></h2>
-        <p class="ds-copy">
+        <div class="ds-kicker" data-i18n="ds_kicker">আসন্ন মহোৎসব · শারদীয় দুর্গোৎসব ২০২৭</div>
+        <h2 class="ds-title" data-i18n-html="ds_title">Durga Puja 2027 <em>কামালপুর অভিযান সংঘ</em></h2>
+        <p class="ds-copy" data-i18n="ds_copy">
           মহাষষ্ঠী থেকে শুভ বিজয়া দশমী — পাঁচ দিনব্যাপী সাড়ম্বর দেবীবন্দনা, নান্দনিক থিম মণ্ডপ, অপরূপ আলোকসজ্জা, ভোগ বিতরণ এবং বাংলার প্রখ্যাত শিল্পীদের নিয়ে জমকালো সাংস্কৃতিক জলসা।
         </p>
         <div class="ds-meta">
-          <span><i class="fa-regular fa-calendar"></i> ৬–১০ অক্টোবর ২০২৭</span>
-          <span><i class="fa-solid fa-location-dot"></i> অভিযান সংঘ প্রাঙ্গণ · উত্তর ব্যারাকপুর</span>
-          <span><i class="fa-solid fa-dharmachakra"></i> ৭৫তম বর্ষ শারদ মহোৎসব</span>
+          <span><i class="fa-regular fa-calendar"></i> <span data-i18n="ds_date">৬–১০ অক্টোবর ২০২৭</span></span>
+          <span><i class="fa-solid fa-location-dot"></i> <span data-i18n="ds_venue">অভিযান সংঘ প্রাঙ্গণ · উত্তর ব্যারাকপুর</span></span>
+          <span><i class="fa-solid fa-dharmachakra"></i> <span data-i18n="ds_tag">৭৫তম বর্ষ শারদ মহোৎসব</span></span>
         </div>
         <div class="ds-stripe">
-          <a class="ds-burst" href="#join">পূজা স্মরণিকা বিজ্ঞাপন ও শুভকামনা বার্তা বুকিং চলছে →</a>
-          <span class="ds-softtag">মণ্ডপ শিল্প · দেবী বন্দনা · মহাপ্রসাদ · সাংস্কৃতিক সন্ধ্যা</span>
+          <a class="ds-burst" href="#join" data-i18n="ds_burst">পূজা স্মরণিকা বিজ্ঞাপন ও শুভকামনা বার্তা বুকিং চলছে →</a>
+          <span class="ds-softtag" data-i18n="ds_softtag">মণ্ডপ শিল্প · দেবী বন্দনা · মহাপ্রসাদ · সাংস্কৃতিক সন্ধ্যা</span>
         </div>
         <div class="ds-actions">
-          <a class="ds-btn primary" href="#events">পূজা নির্ঘণ্ট দেখুন</a>
-          <a class="ds-btn registration" href="#donate">ভোগ কুপন ও অনুদান</a>
-          <a class="ds-btn registration" href="#join">বিজ্ঞাপন ও স্টল বুকিং</a>
-          <a class="ds-btn ghost" href="#events">আমন্ত্রিত শিল্পী তালিকা</a>
+          <a class="ds-btn primary" href="#events" data-i18n="ds_btn_1">পূজা নির্ঘণ্ট দেখুন</a>
+          <a class="ds-btn registration" href="#donate" data-i18n="ds_btn_2">ভোগ কুপন ও অনুদান</a>
+          <a class="ds-btn registration" href="#join" data-i18n="ds_btn_3">বিজ্ঞাপন ও স্টল বুকিং</a>
+          <a class="ds-btn ghost" href="#events" data-i18n="ds_btn_4">আমন্ত্রিত শিল্পী তালিকা</a>
         </div>
       </div>
 
@@ -261,12 +310,12 @@
     <div class="container">
       <div class="about-grid">
         <div class="reveal">
-          <div class="eyebrow">আমাদের কথা · Who We Are</div>
-          <h2 class="sh2">
+          <div class="eyebrow" data-i18n="about_eyebrow">আমাদের কথা · Who We Are</div>
+          <h2 class="sh2" data-i18n-html="about_h2">
             শুধু একটি ক্লাব নয় —<br>
             একটি <em>পরিবার</em> ১৯৫২ থেকে
           </h2>
-          <p class="about-body">
+          <p class="about-body" data-i18n-html="about_body">
             কামালপুর অভিযান সংঘ ১৯৫২ সালে স্থানীয় একদল উদ্যমী তরুণ ও সমাজসেবীদের হাত ধরে প্রতিষ্ঠিত হয় (রেজিস্ট্রেশন নং: S/54028)। আজ সাত দশকেরও বেশি সময় ধরে আমরা শুধু একটি পূজো কমিটি নই, উত্তর ব্যারাকপুর ও পার্শ্ববর্তী অঞ্চলের প্রতিটি মানুষের সুখ-দুঃখের বিশ্বস্ত সহমর্মী।
             <br><br>
             বাংলার আবহমান দুর্গাপূজার ঐতিহ্য রক্ষা, নিঃস্বার্থ সমাজসেবা, ক্রীড়া বিকাশ এবং সাংস্কৃতিক চেতনায় আমরা একতাবদ্ধ। জাত-ধর্ম-বর্ণ নির্বিশেষে প্রতিটি মানুষ এখানে এক সূত্রে বাঁধা।
@@ -276,23 +325,23 @@
           <div class="about-pillars">
             <div class="pillar reveal rd1">
               <div class="pillar-icon">🎭</div>
-              <div class="pillar-title">সংস্কৃতি ও ঐতিহ্য</div>
-              <div class="pillar-desc">সঙ্গীত, নাটক, নৃত্য, সাহিত্য আলোচনা ও শারদ স্মরণিকা প্রকাশনার মধ্য দিয়ে ঐতিহ্য সংরক্ষণ</div>
+              <div class="pillar-title" data-i18n="pillar1_title">সংস্কৃতি ও ঐতিহ্য</div>
+              <div class="pillar-desc" data-i18n="pillar1_desc">সঙ্গীত, নাটক, নৃত্য, সাহিত্য আলোচনা ও শারদ স্মরণিকা প্রকাশনার মধ্য দিয়ে ঐতিহ্য সংরক্ষণ</div>
             </div>
             <div class="pillar reveal rd2">
               <div class="pillar-icon">🤝</div>
-              <div class="pillar-title">নিঃস্বার্থ সমাজসেবা</div>
-              <div class="pillar-desc">বার্ষিক মেগা রক্তদান শিবির, বিনামূল্যে চিকিৎসা সহায়তা, দুঃস্থদের বস্ত্র বিতরণ ও আপদকালীন সাহায্য</div>
+              <div class="pillar-title" data-i18n="pillar2_title">নিঃস্বার্থ সমাজসেবা</div>
+              <div class="pillar-desc" data-i18n="pillar2_desc">বার্ষিক মেগা রক্তদান শিবির, বিনামূল্যে চিকিৎসা সহায়তা, দুঃস্থদের বস্ত্র বিতরণ ও আপদকালীন সাহায্য</div>
             </div>
             <div class="pillar reveal rd3">
               <div class="pillar-icon">⚽</div>
-              <div class="pillar-title">ক্রীড়া ও শরীরচর্চা</div>
-              <div class="pillar-desc">বার্ষিক ফুটবল প্রতিযোগিতা, আন্তঃক্লাব ক্রিকেট টুর্নামেন্ট, ক্যারাম ও তরুণদের ক্রীড়া প্রশিক্ষণ</div>
+              <div class="pillar-title" data-i18n="pillar3_title">ক্রীড়া ও শরীরচর্চা</div>
+              <div class="pillar-desc" data-i18n="pillar3_desc">বার্ষিক ফুটবল প্রতিযোগিতা, আন্তঃক্লাব ক্রিকেট টুর্নামেন্ট, ক্যারাম ও তরুণদের ক্রীড়া প্রশিক্ষণ</div>
             </div>
             <div class="pillar reveal rd4">
               <div class="pillar-icon">🌱</div>
-              <div class="pillar-title">যুব বিকাশ ও পাঠাগার</div>
-              <div class="pillar-desc">নেতাজী সুভাষ পাঠাগার, শিক্ষাবৃত্তি, বসে আঁকো প্রতিযোগিতা ও যুব সমাজের নেতৃত্ব গঠন</div>
+              <div class="pillar-title" data-i18n="pillar4_title">যুব বিকাশ ও পাঠাগার</div>
+              <div class="pillar-desc" data-i18n="pillar4_desc">নেতাজী সুভাষ পাঠাগার, শিক্ষাবৃত্তি, বসে আঁকো প্রতিযোগিতা ও যুব সমাজের নেতৃত্ব গঠন</div>
             </div>
           </div>
         </div>
@@ -304,7 +353,7 @@
           </div>
           <div class="about-badge">
             <div class="badge-num">75<sup>+</sup></div>
-            <div class="badge-lbl">বছরের ঐতিহ্য</div>
+            <div class="badge-lbl" data-i18n="badge_lbl">বছরের ঐতিহ্য</div>
           </div>
         </div>
       </div>
@@ -315,19 +364,19 @@
   <section id="events">
     <div class="container">
       <div class="events-intro reveal">
-        <div class="eyebrow">আমাদের বর্ষপঞ্জী · Our Calendar</div>
-        <h2 class="sh2">Two sides of <em>Abhijaan</em></h2>
-        <p style="font-family:var(--sans);font-size:16px;font-weight:300;color:var(--text-2);margin-top:14px;line-height:1.75;">
+        <div class="eyebrow" data-i18n="events_eyebrow">আমাদের বর্ষপঞ্জী · Our Calendar</div>
+        <h2 class="sh2" data-i18n-html="events_h2">Two sides of <em>Abhijaan</em></h2>
+        <p style="font-family:var(--sans);font-size:16px;font-weight:300;color:var(--text-2);margin-top:14px;line-height:1.75;" data-i18n="events_sub">
           শারদ উৎসব ও বিনোদনের পাশাপাশি বছরভর সমাজকল্যাণ ও খেলাধুলার বিস্তারিত কর্মসূচি।
         </p>
       </div>
 
       <!-- Tab Buttons -->
       <div class="event-tabs">
-        <div class="etab active-c" id="tab-c" onclick="switchTab('c')">
+        <div class="etab active-c" id="tab-c" onclick="switchTab('c')" data-i18n-html="tab_c">
           🎭 &nbsp;সাংস্কৃতিক ও শারদ উৎসব
         </div>
-        <div class="etab" id="tab-s" onclick="switchTab('s')">
+        <div class="etab" id="tab-s" onclick="switchTab('s')" data-i18n-html="tab_s">
           🤝 &nbsp;সমাজসেবা ও খেলাধুলা
         </div>
       </div>
@@ -346,12 +395,12 @@
                 <div class="ev-card">
                   <div class="ev-card-top gold-top">
                     <div class="date-chip gold-chip"><span class="dm">অক্টো</span><span class="dd">০১</span></div>
-                    <span class="ev-card-label">মহালয়া উৎসব · ২০২৭</span>
+                    <span class="ev-card-label" data-i18n="ev_c1_label">মহালয়া উৎসব · ২০২৭</span>
                   </div>
                   <div class="ev-card-body theme-picnic">
-                    <div class="ev-cat">দেবী আবাহন</div>
-                    <div class="ev-name">মহালয়া প্রভাতী বন্দনা ও চক্ষুদান</div>
-                    <p class="ev-desc">ভোরের আলোয় বীরেন্দ্রকৃষ্ণ ভদ্রের চণ্ডীপাঠ ও ক্লাব প্রাঙ্গণে শঙ্খধ্বনি সহযোগে দেবী প্রতিমার চক্ষুদান ও পূজার শুভারম্ভ।</p>
+                    <div class="ev-cat" data-i18n="ev_c1_cat">দেবী আবাহন</div>
+                    <div class="ev-name" data-i18n="ev_c1_name">মহালয়া প্রভাতী বন্দনা ও চক্ষুদান</div>
+                    <p class="ev-desc" data-i18n="ev_c1_desc">ভোরের আলোয় বীরেন্দ্রকৃষ্ণ ভদ্রের চণ্ডীপাঠ ও ক্লাব প্রাঙ্গণে শঙ্খধ্বনি সহযোগে দেবী প্রতিমার চক্ষুদান ও পূজার শুভারম্ভ।</p>
                     <a href="#events" class="ev-link">বিস্তারিত সময়সূচি →</a>
                   </div>
                 </div>
@@ -362,12 +411,12 @@
                 <div class="ev-card">
                   <div class="ev-card-top dark-top">
                     <div class="date-chip"><span class="dm">অক্টো</span><span class="dd">০৬–১০</span></div>
-                    <span class="ev-card-label inv">প্রধান শারদ মহোৎসব</span>
+                    <span class="ev-card-label inv" data-i18n="ev_c2_label">প্রধান শারদ মহোৎসব</span>
                   </div>
                   <div class="ev-card-body theme-durga">
-                    <div class="ev-cat">শারদীয় দুর্গোৎসব</div>
-                    <div class="ev-name">শারদীয় দুর্গোৎসব ২০২৭ (৭৫তম বর্ষ)</div>
-                    <p class="ev-desc">মহাষষ্ঠী থেকে মহানবমী — কুমারী পূজা, আরতি প্রতিযোগিতা, অষ্টমী ভোগ প্রসাদ বিতরণ এবং প্রখ্যাত শিল্পীদের সান্ধ্য জলসা।</p>
+                    <div class="ev-cat" data-i18n="ev_c2_cat">শারদীয় দুর্গোৎসব</div>
+                    <div class="ev-name" data-i18n="ev_c2_name">শারদীয় দুর্গোৎসব ২০২৭ (৭৫তম বর্ষ)</div>
+                    <p class="ev-desc" data-i18n="ev_c2_desc">মহাষষ্ঠী থেকে মহানবমী — কুমারী পূজা, আরতি প্রতিযোগিতা, অষ্টমী ভোগ প্রসাদ বিতরণ এবং প্রখ্যাত শিল্পীদের সান্ধ্য জলসা।</p>
                     <a href="#upcoming-durga-puja" class="ev-link">পূজা নির্ঘণ্ট ও ভোগ কুপন →</a>
                   </div>
                 </div>
@@ -378,12 +427,12 @@
                 <div class="ev-card">
                   <div class="ev-card-top dark-top">
                     <div class="date-chip gold-chip"><span class="dm">অক্টো</span><span class="dd">১০</span></div>
-                    <span class="ev-card-label inv">দশমী উৎসব</span>
+                    <span class="ev-card-label inv" data-i18n="ev_c3_label">দশমী উৎসব</span>
                   </div>
                   <div class="ev-card-body theme-bijoya">
-                    <div class="ev-cat">বিজয়া ও বিসর্জন</div>
-                    <div class="ev-name">বিজয়া দশমী ও সিঁদুর খেলা</div>
-                    <p class="ev-desc">দেবী বরণ, ঐতিহ্যবাহী সিঁদুর খেলা, গঙ্গার ঘাটে সুশৃঙ্খল প্রতিমা বিসর্জন এবং সন্ধ্যায় ক্লাব প্রাঙ্গণে বিজয়ার মিষ্টিমুখ ও শুভেচ্ছা বিনিময়।</p>
+                    <div class="ev-cat" data-i18n="ev_c3_cat">বিজয়া ও বিসর্জন</div>
+                    <div class="ev-name" data-i18n="ev_c3_name">বিজয়া দশমী ও সিঁদুর খেলা</div>
+                    <p class="ev-desc" data-i18n="ev_c3_desc">দেবী বরণ, ঐতিহ্যবাহী সিঁদুর খেলা, গঙ্গার ঘাটে সুশৃঙ্খল প্রতিমা বিসর্জন এবং সন্ধ্যায় ক্লাব প্রাঙ্গণে বিজয়ার মিষ্টিমুখ ও শুভেচ্ছা বিনিময়।</p>
                     <a href="#events" class="ev-link">বিসর্জন শোভাযাত্রা বিবরণ →</a>
                   </div>
                 </div>
@@ -394,12 +443,12 @@
                 <div class="ev-card">
                   <div class="ev-card-top gold-top">
                     <div class="date-chip gold-chip"><span class="dm">অক্টো</span><span class="dd">১৫</span></div>
-                    <span class="ev-card-label">ঐতিহ্যবাহী পূজা</span>
+                    <span class="ev-card-label" data-i18n="ev_c4_label">ঐতিহ্যবাহী পূজা</span>
                   </div>
                   <div class="ev-card-body theme-laxmi">
-                    <div class="ev-cat">কোজাগরী আরাধনা</div>
-                    <div class="ev-name">শ্রী শ্রী কোজাগরী লক্ষ্মী পূজা</div>
-                    <p class="ev-desc">কামালপুর অভিযান সংঘ প্রাঙ্গণে ধনধান্যের দেবী মা লক্ষ্মীর সার্বজনীন আরাধনা, পঞ্চপ্রদীপ আরতি ও খিচুড়ি ভোগ বিতরণ।</p>
+                    <div class="ev-cat" data-i18n="ev_c4_cat">কোজাগরী আরাধনা</div>
+                    <div class="ev-name" data-i18n="ev_c4_name">শ্রী শ্রী কোজাগরী লক্ষ্মী পূজা</div>
+                    <p class="ev-desc" data-i18n="ev_c4_desc">কামালপুর অভিযান সংঘ প্রাঙ্গণে ধনধান্যের দেবী মা লক্ষ্মীর সার্বজনীন আরাধনা, পঞ্চপ্রদীপ আরতি ও খিচুড়ি ভোগ বিতরণ।</p>
                     <a href="#events" class="ev-link">ভোগ বিতরণ সময়সূচি →</a>
                   </div>
                 </div>
@@ -410,12 +459,12 @@
                 <div class="ev-card">
                   <div class="ev-card-top dark-top">
                     <div class="date-chip gold-chip"><span class="dm">নভে</span><span class="dd">০২</span></div>
-                    <span class="ev-card-label inv">আলোর উৎসব</span>
+                    <span class="ev-card-label inv" data-i18n="ev_c5_label">আলোর উৎসব</span>
                   </div>
                   <div class="ev-card-body theme-newyear">
-                    <div class="ev-cat">দীপাবলি</div>
-                    <div class="ev-name">শ্রী শ্রী শ্যামা পূজা ও দীপাবলি</div>
-                    <p class="ev-desc">দীপাবলিতে সহস্র মাটির প্রদীপে মণ্ডপ প্রাঙ্গণ সজ্জা, নিশাপূজা এবং আতশবাজির বর্ণাঢ্য উৎসব।</p>
+                    <div class="ev-cat" data-i18n="ev_c5_cat">দীপাবলি</div>
+                    <div class="ev-name" data-i18n="ev_c5_name">শ্রী শ্রী শ্যামা পূজা ও দীপাবলি</div>
+                    <p class="ev-desc" data-i18n="ev_c5_desc">দীপাবলিতে সহস্র মাটির প্রদীপে মণ্ডপ প্রাঙ্গণ সজ্জা, নিশাপূজা এবং আতশবাজির বর্ণাঢ্য উৎসব।</p>
                     <a href="#events" class="ev-link">পূজার নির্ঘণ্ট →</a>
                   </div>
                 </div>
@@ -425,7 +474,7 @@
           <div class="c-dots" id="cc-dots"></div>
         </div>
         <div class="tab-footer reveal">
-          <a href="#events">সকল উৎসব ও অনুষ্ঠানের তালিকা দেখুন →</a>
+          <a href="#events" data-i18n="tab_footer_c">সকল উৎসব ও অনুষ্ঠানের তালিকা দেখুন →</a>
         </div>
       </div>
 
@@ -443,12 +492,12 @@
                 <div class="ev-card">
                   <div class="ev-card-top gold-top">
                     <div class="date-chip"><span class="dm">বার্ষিক</span><span class="dd">🩸</span></div>
-                    <span class="ev-card-label">জীবনদায়ী উদ্যোগ</span>
+                    <span class="ev-card-label" data-i18n="ev_s1_label">জীবনদায়ী উদ্যোগ</span>
                   </div>
                   <div class="ev-card-body theme-blood">
-                    <div class="ev-cat">সমাজকল্যাণ</div>
-                    <div class="ev-name">বার্ষিক মেগা রক্তদান শিবির</div>
-                    <p class="ev-desc">সরকারি ব্লাড ব্যাংকের সহযোগিতায় প্রতি বছর দুই শতাধিক সাধারণ মানুষের অংশগ্রহণে স্বেচ্ছায় রক্তদান শিবির পরিচালনা।</p>
+                    <div class="ev-cat" data-i18n="ev_s1_cat">সমাজকল্যাণ</div>
+                    <div class="ev-name" data-i18n="ev_s1_name">বার্ষিক মেগা রক্তদান শিবির</div>
+                    <p class="ev-desc" data-i18n="ev_s1_desc">সরকারি ব্লাড ব্যাংকের সহযোগিতায় প্রতি বছর দুই শতাধিক সাধারণ মানুষের অংশগ্রহণে স্বেচ্ছায় রক্তদান শিবির পরিচালনা।</p>
                     <a href="#donate" class="ev-link">রক্তদাতা তালিকায় নাম লেখান →</a>
                   </div>
                 </div>
@@ -459,12 +508,12 @@
                 <div class="ev-card">
                   <div class="ev-card-top dark-top">
                     <div class="date-chip gold-chip"><span class="dm">নিয়মিত</span><span class="dd">🩺</span></div>
-                    <span class="ev-card-label inv">স্বাস্থ্য সেবা</span>
+                    <span class="ev-card-label inv" data-i18n="ev_s2_label">স্বাস্থ্য সেবা</span>
                   </div>
                   <div class="ev-card-body theme-toastmasters">
-                    <div class="ev-cat">চিকিৎসা পরিষেবা</div>
-                    <div class="ev-name">বিনামূল্যে স্বাস্থ্য ও চক্ষু পরীক্ষা শিবির</div>
-                    <p class="ev-desc">অভিজ্ঞ বিশেষজ্ঞ চিকিৎসকদের উপস্থিতিতে এলাকার প্রবীণ ও দুঃস্থ মানুষদের বিনামূল্যে ইসিজি, রক্ত পরীক্ষা ও চশমা বিতরণ।</p>
+                    <div class="ev-cat" data-i18n="ev_s2_cat">চিকিৎসা পরিষেবা</div>
+                    <div class="ev-name" data-i18n="ev_s2_name">বিনামূল্যে স্বাস্থ্য ও চক্ষু পরীক্ষা শিবির</div>
+                    <p class="ev-desc" data-i18n="ev_s2_desc">অভিজ্ঞ বিশেষজ্ঞ চিকিৎসকদের উপস্থিতিতে এলাকার প্রবীণ ও দুঃস্থ মানুষদের বিনামূল্যে ইসিজি, রক্ত পরীক্ষা ও চশমা বিতরণ।</p>
                     <a href="#events" class="ev-link">শিবিরের দিনক্ষণ →</a>
                   </div>
                 </div>
@@ -475,12 +524,12 @@
                 <div class="ev-card">
                   <div class="ev-card-top gold-top">
                     <div class="date-chip gold-chip"><span class="dm">মাসিক</span><span class="dd">📚</span></div>
-                    <span class="ev-card-label">শিক্ষা ও সাহিত্য</span>
+                    <span class="ev-card-label" data-i18n="ev_s3_label">শিক্ষা ও সাহিত্য</span>
                   </div>
                   <div class="ev-card-body theme-bookclub">
-                    <div class="ev-cat">জ্ঞান চর্চা</div>
-                    <div class="ev-name">নেতাজী সুভাষ পাঠাগার ও পাঠচক্র</div>
-                    <p class="ev-desc">আড়াই হাজারেরও বেশি গ্রন্থের সমৃদ্ধ ভাণ্ডার, দৈনিক সংবাদপত্র ও নিয়মিত মাসিক সাহিত্য পাঠচক্রের আসর।</p>
+                    <div class="ev-cat" data-i18n="ev_s3_cat">জ্ঞান চর্চা</div>
+                    <div class="ev-name" data-i18n="ev_s3_name">নেতাজী সুভাষ পাঠাগার ও পাঠচক্র</div>
+                    <p class="ev-desc" data-i18n="ev_s3_desc">আড়াই হাজারেরও বেশি গ্রন্থের সমৃদ্ধ ভাণ্ডার, দৈনিক সংবাদপত্র ও নিয়মিত মাসিক সাহিত্য পাঠচক্রের আসর।</p>
                     <a href="#about" class="ev-link">পাঠাগারের সদস্যপদ নিন →</a>
                   </div>
                 </div>
@@ -491,12 +540,12 @@
                 <div class="ev-card">
                   <div class="ev-card-top dark-top">
                     <div class="date-chip"><span class="dm">বার্ষিক</span><span class="dd">🏆</span></div>
-                    <span class="ev-card-label inv">ক্রীড়া প্রতিযোগিতা</span>
+                    <span class="ev-card-label inv" data-i18n="ev_s4_label">ক্রীড়া প্রতিযোগিতা</span>
                   </div>
                   <div class="ev-card-body theme-sports">
-                    <div class="ev-cat">ফুটবল টুর্নামেন্ট</div>
-                    <div class="ev-name">অভিযান নকআউট ফুটবল শিল্ড</div>
-                    <p class="ev-desc">উত্তর ২৪ পরগনার শীর্ষ ১৬টি ক্লাব দলের অংশগ্রহণে ঐতিহ্যবাহী নকআউট ফুটবল টুর্নামেন্ট ও ট্রফি বিতরণ।</p>
+                    <div class="ev-cat" data-i18n="ev_s4_cat">ফুটবল টুর্নামেন্ট</div>
+                    <div class="ev-name" data-i18n="ev_s4_name">অভিযান নকআউট ফুটবল শিল্ড</div>
+                    <p class="ev-desc" data-i18n="ev_s4_desc">উত্তর ২৪ পরগনার শীর্ষ ১৬টি ক্লাব দলের অংশগ্রহণে ঐতিহ্যবাহী নকআউট ফুটবল টুর্নামেন্ট ও ট্রফি বিতরণ।</p>
                     <a href="#events" class="ev-link">দল নিবন্ধন ও ফিক্সচার →</a>
                   </div>
                 </div>
@@ -507,12 +556,12 @@
                 <div class="ev-card">
                   <div class="ev-card-top dark-top">
                     <div class="date-chip gold-chip"><span class="dm">শীতকালীন</span><span class="dd">🧣</span></div>
-                    <span class="ev-card-label inv">মানবসেবা</span>
+                    <span class="ev-card-label inv" data-i18n="ev_s5_label">মানবসেবা</span>
                   </div>
                   <div class="ev-card-body theme-quiz">
-                    <div class="ev-cat">সমাজসেবা</div>
-                    <div class="ev-name">দুঃস্থদের শীতবস্ত্র ও কম্বল বিতরণ</div>
-                    <p class="ev-desc">প্রতি বছর পৌষ মাসে ব্যারাকপুর অঞ্চলের দুঃস্থ, অসহায় ও প্রবীণ মানুষদের মাঝে শীতবস্ত্র ও কম্বল প্রদান কর্মসূচি।</p>
+                    <div class="ev-cat" data-i18n="ev_s5_cat">সমাজসেবা</div>
+                    <div class="ev-name" data-i18n="ev_s5_name">দুঃস্থদের শীতবস্ত্র ও কম্বল বিতরণ</div>
+                    <p class="ev-desc" data-i18n="ev_s5_desc">প্রতি বছর পৌষ মাসে ব্যারাকপুর অঞ্চলের দুঃস্থ, অসহায় ও প্রবীণ মানুষদের মাঝে শীতবস্ত্র ও কম্বল প্রদান কর্মসূচি।</p>
                     <a href="#donate" class="ev-link">সহযোগিতার হাত বাড়ান →</a>
                   </div>
                 </div>
@@ -522,7 +571,7 @@
           <div class="c-dots" id="sc-dots"></div>
         </div>
         <div class="tab-footer reveal">
-          <a href="#events" class="gold-foot">সকল সমাজসেবামূলক কাজের বিবরণ →</a>
+          <a href="#events" class="gold-foot" data-i18n="tab_footer_s">সকল সমাজসেবামূলক কাজের বিবরণ →</a>
         </div>
       </div>
     </div>
@@ -536,22 +585,22 @@
           <div class="pres-img-frame">
             <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80" alt="সুব্রত ভট্টাচার্য, সভাপতি, কামালপুর অভিযান সংঘ">
             <div class="pres-nameplate">
-              <div class="pname">সুব্রত ভট্টাচার্য (Subrata Bhattacharya)</div>
-              <div class="prole">সভাপতি · কামালপুর অভিযান সংঘ (President · 2025–2027)</div>
+              <div class="pname" data-i18n="pres_name">সুব্রত ভট্টাচার্য (Subrata Bhattacharya)</div>
+              <div class="prole" data-i18n="pres_role">সভাপতি · কামালপুর অভিযান সংঘ (President · 2025–2027)</div>
             </div>
           </div>
         </div>
 
         <div class="reveal rd2">
-          <div class="eyebrow">সভাপতির বার্তা · President's Desk</div>
-          <h2 class="sh2">আমাদের <em>সভাপতির</em><br>আন্তরিক বার্তা</h2>
-          <blockquote class="pres-quote">
+          <div class="eyebrow" data-i18n="pres_eyebrow">সভাপতির বার্তা · President's Desk</div>
+          <h2 class="sh2" data-i18n-html="pres_h2">আমাদের <em>সভাপতির</em><br>আন্তরিক বার্তা</h2>
+          <blockquote class="pres-quote" data-i18n-html="pres_quote">
             &quot;ঐতিহ্য, সম্প্রীতি ও নিঃস্বার্থ সমাজসেবা — এই তিনে মিলেই আমাদের কামালপুর অভিযান সংঘ। নতুন প্রজন্মকে সঙ্গে নিয়ে আমাদের ঐতিহ্যবাহী দুর্গাপূজাকে সার্বজনীন মহামিলন ক্ষেত্রে পরিণত করাই আমাদের ব্রত।&quot;
           </blockquote>
-          <p class="pres-body">
+          <p class="pres-body" data-i18n="pres_body">
             কামালপুর অভিযান সংঘের সকল সদস্য, শুভানুধ্যায়ী, পূজা কমিটির কর্মীবৃন্দ এবং সমগ্র উত্তর ব্যারাকপুরবাসীকে আমার সশ্রদ্ধ শারদ শুভেচ্ছা। ১৯৫২ সালে প্রতিষ্ঠিত এই সংঘ আজ ৭৫ বছরের মহিমায় উদ্ভাসিত। ক্লাবের প্রবীণ পথপ্রদর্শক, বর্তমান কার্যকরী কমিটি এবং আমাদের পৃষ্ঠপোষকদের নিরলস পরিশ্রমে আমাদের দুর্গোৎসব ২০২৭ এক অনন্য রূপ পেতে চলেছে। আসুন, সকলে মিলে এই শারদোৎসবকে আনন্দময় ও সর্বাঙ্গীণ সুন্দর করে তুলি।
           </p>
-          <a href="#about" class="inline-link">পূর্ণাঙ্গ কার্যকরী কমিটি ও পূজা কর্মকর্তাদের পরিচিতি →</a>
+          <a href="#about" class="inline-link" data-i18n="pres_link">পূর্ণাঙ্গ কার্যকরী কমিটি ও পূজা কর্মকর্তাদের পরিচিতি →</a>
         </div>
       </div>
     </div>
@@ -563,66 +612,66 @@
     <div class="container">
       <div class="heritage-grid">
         <div class="reveal">
-          <div class="eyebrow white-eye">আমাদের গৌরবগাথা · Heritage Timeline</div>
-          <h2 class="sh2 inv">সাত দশকের<br>গৌরবময় <em>ইতিহাস</em></h2>
-          <p class="heritage-body">
+          <div class="eyebrow white-eye" data-i18n="heritage_eyebrow">আমাদের গৌরবগাথা · Heritage Timeline</div>
+          <h2 class="sh2 inv" data-i18n-html="heritage_h2">সাত দশকের<br>গৌরবময় <em>ইতিহাস</em></h2>
+          <p class="heritage-body" data-i18n="heritage_body">
             ১৯৫২ সালের একটি ছোট দুর্গোৎসব থেকে আজ উত্তর ব্যারাকপুরের অন্যতম শীর্ষ সামাজিক ও সাংস্কৃতিক প্রতিষ্ঠান হিসেবে আত্মপ্রকাশের গৌরবগাথা।
           </p>
           <div class="timeline">
             <div class="tl-item reveal rd1">
               <div class="tl-dot"><div class="tl-dot-inner"></div></div>
               <div>
-                <div class="tl-year">১৯৫২ — শুভ প্রতিষ্ঠা</div>
-                <div class="tl-text">কামালপুরের একদল সংস্কৃতিপ্রেমী যুবকের উদ্যোগে প্রথম দুর্গোৎসব ও ক্লাবের ভিত্তিপ্রস্তর স্থাপন।</div>
+                <div class="tl-year" data-i18n="tl1_year">১৯৫২ — শুভ প্রতিষ্ঠা</div>
+                <div class="tl-text" data-i18n="tl1_text">কামালপুরের একদল সংস্কৃতিপ্রেমী যুবকের উদ্যোগে প্রথম দুর্গোৎসব ও ক্লাবের ভিত্তিপ্রস্তর স্থাপন।</div>
               </div>
             </div>
             <div class="tl-item reveal rd2">
               <div class="tl-dot"><div class="tl-dot-inner"></div></div>
               <div>
-                <div class="tl-year">১৯৬৮ — পাঠাগার ও নাট্যমঞ্চ</div>
-                <div class="tl-text">নেতাজী সুভাষ পাঠাগার প্রতিষ্ঠা ও নিয়মিত বার্ষিক যাত্রানুষ্ঠান ও নাটক মঞ্চস্থের ঐতিহ্য শুরু।</div>
+                <div class="tl-year" data-i18n="tl2_year">১৯৬৮ — পাঠাগার ও নাট্যমঞ্চ</div>
+                <div class="tl-text" data-i18n="tl2_text">নেতাজী সুভাষ পাঠাগার প্রতিষ্ঠা ও নিয়মিত বার্ষিক যাত্রানুষ্ঠান ও নাটক মঞ্চস্থের ঐতিহ্য শুরু।</div>
               </div>
             </div>
             <div class="tl-item reveal rd3">
               <div class="tl-dot"><div class="tl-dot-inner"></div></div>
               <div>
-                <div class="tl-year">১৯৯৫ — সমাজসেবার বিস্তার</div>
-                <div class="tl-text">নিয়মিত রক্তদান শিবির, দুঃস্থ চিকিৎসা তহবিল ও বার্ষিক ফুটবল প্রতিযোগিতার আনুষ্ঠানিক সূচনা।</div>
+                <div class="tl-year" data-i18n="tl3_year">১৯৯৫ — সমাজসেবার বিস্তার</div>
+                <div class="tl-text" data-i18n="tl3_text">নিয়মিত রক্তদান শিবির, দুঃস্থ চিকিৎসা তহবিল ও বার্ষিক ফুটবল প্রতিযোগিতার আনুষ্ঠানিক সূচনা।</div>
               </div>
             </div>
             <div class="tl-item reveal rd4">
               <div class="tl-dot"><div class="tl-dot-inner"></div></div>
               <div>
-                <div class="tl-year">২০২৭ — প্ল্যাটিনাম জুবিলি ও দুর্গোৎসব</div>
-                <div class="tl-text">৭৫ বছরের গৌরবময় যাত্রায় আধুনিক থিম মণ্ডপ, সামাজিক সেবা ও মেগা শারদীয় দুর্গোৎসব ২০২৭ উদযাপিত।</div>
+                <div class="tl-year" data-i18n="tl4_year">২০২৭ — প্ল্যাটিনাম জুবিলি ও দুর্গোৎসব</div>
+                <div class="tl-text" data-i18n="tl4_text">৭৫ বছরের গৌরবময় যাত্রায় আধুনিক থিম মণ্ডপ, সামাজিক সেবা ও মেগা শারদীয় দুর্গোৎসব ২০২৭ উদযাপিত।</div>
               </div>
             </div>
           </div>
         </div>
 
         <div class="reveal rd2">
-          <div class="eyebrow white-eye">পরিসংখ্যানে সাফল্য · By The Numbers</div>
-          <h2 class="sh2 inv">সংখ্যায় আমাদের<br>ঐতিহ্যের <em>স্মারক</em></h2>
+          <div class="eyebrow white-eye" data-i18n="hnum_eyebrow">পরিসংখ্যানে সাফল্য · By The Numbers</div>
+          <h2 class="sh2 inv" data-i18n-html="hnum_h2">সংখ্যায় আমাদের<br>ঐতিহ্যের <em>স্মারক</em></h2>
           <div class="hnum-grid">
             <div class="hnum-card reveal rd1">
               <div class="hnum">75<sup>+</sup></div>
-              <div class="hnum-lbl">বছরের ঐতিহ্য</div>
+              <div class="hnum-lbl" data-i18n="hstat_lbl_1">বছরের ঐতিহ্য</div>
             </div>
             <div class="hnum-card reveal rd2">
               <div class="hnum">1952</div>
-              <div class="hnum-lbl">প্রতিষ্ঠা বর্ষ</div>
+              <div class="hnum-lbl" data-i18n="hstat_lbl_2">প্রতিষ্ঠা বর্ষ</div>
             </div>
             <div class="hnum-card reveal rd3">
               <div class="hnum">500<sup>+</sup></div>
-              <div class="hnum-lbl">সদস্য পরিবার</div>
+              <div class="hnum-lbl" data-i18n="hstat_lbl_3">সদস্য পরিবার</div>
             </div>
             <div class="hnum-card reveal rd4">
               <div class="hnum">25<sup>+</sup></div>
-              <div class="hnum-lbl">সেরা পূজার পুরস্কার</div>
+              <div class="hnum-lbl" data-i18n="hstat_lbl_4">সেরা পূজার পুরস্কার</div>
             </div>
           </div>
           <div style="margin-top: 36px;">
-            <a href="#about" class="inline-link" style="color:var(--gold-bright); border-color:rgba(212,149,106,0.4);">
+            <a href="#about" class="inline-link" style="color:var(--gold-bright); border-color:rgba(212,149,106,0.4);" data-i18n="hnum_link">
               আমাদের পূর্ণাঙ্গ ইতিহাস ও দলিল দর্শন →
             </a>
           </div>
@@ -635,9 +684,9 @@
   <section id="sponsors" class="puja-vendors">
     <div class="container">
       <div class="puja-vendors-head reveal">
-        <div class="puja-vendors-kicker">শারদীয় দুর্গোৎসব ২০২৭</div>
-        <h2 class="puja-vendors-title">আমাদের বিজ্ঞাপনী <em>পৃষ্ঠপোষক ও পার্টনার</em></h2>
-        <p class="puja-vendors-sub">যাঁদের ঐকান্তিক সহযোগিতায় কামালপুর অভিযান সংঘের শারদীয় দুর্গোৎসব ও সমাজসেবামূলক কর্মযজ্ঞ সাফল্যমণ্ডিত হয়।</p>
+        <div class="puja-vendors-kicker" data-i18n="sponsors_kicker">শারদীয় দুর্গোৎসব ২০২৭</div>
+        <h2 class="puja-vendors-title" data-i18n-html="sponsors_title">আমাদের বিজ্ঞাপনী <em>পৃষ্ঠপোষক ও পার্টনার</em></h2>
+        <p class="puja-vendors-sub" data-i18n="sponsors_sub">যাঁদের ঐকান্তিক সহযোগিতায় কামালপুর অভিযান সংঘের শারদীয় দুর্গোৎসব ও সমাজসেবামূলক কর্মযজ্ঞ সাফল্যমণ্ডিত হয়।</p>
       </div>
 
       <div class="vendor-grid reveal rd1">
@@ -723,29 +772,29 @@
       <div class="container" style="position:relative;z-index:2;">
         <div class="donate-inner">
           <div class="donate-left reveal">
-            <div class="eyebrow white-eye">দান ও শুভকামনা · Support Abhijaan</div>
-            <h2 class="sh2 inv" style="font-size:clamp(34px,4vw,56px);">
+            <div class="eyebrow white-eye" data-i18n="donate_eyebrow">দান ও শুভকামনা · Support Abhijaan</div>
+            <h2 class="sh2 inv" style="font-size:clamp(34px,4vw,56px);" data-i18n-html="donate_h2">
               আপনার সহযোগিতায়<br>সচল থাকুক <em>সমাজকল্যাণ</em><br>&amp; দুর্গোৎসব ২০২৭
             </h2>
-            <p class="donate-body">
+            <p class="donate-body" data-i18n="donate_body">
               দীর্ঘ ৭৫ বছর ধরে কামালপুর অভিযান সংঘের প্রতিটি উদ্যোগ গড়ে উঠেছে সহৃদয় সদস্য, স্থানীয় অধিবাসী ও প্রবাসী বাঙালিদের ভালোবাসায়। আপনার সামান্য অনুদান দুর্গাপূজার মণ্ডপসজ্জা, ভোগ বিতরণ, রক্তদান শিবির ও দুঃস্থদের চিকিৎসার তহবিলে সরাসরি ব্যবহৃত হয়।
             </p>
             <div class="donate-impact reveal rd1">
               <div class="impact-item">
                 <div class="impact-icon">🎭</div>
-                <div class="impact-text">শারদীয় দুর্গোৎসব ও শিল্পীদের সাংস্কৃতিক অনুষ্ঠান আয়োজন</div>
+                <div class="impact-text" data-i18n="impact_1">শারদীয় দুর্গোৎসব ও শিল্পীদের সাংস্কৃতিক অনুষ্ঠান আয়োজন</div>
               </div>
               <div class="impact-item">
                 <div class="impact-icon">🩸</div>
-                <div class="impact-text">বার্ষিক রক্তদান শিবির ও জরুরি অ্যাম্বুলেন্স সেবা পরিচালনা</div>
+                <div class="impact-text" data-i18n="impact_2">বার্ষিক রক্তদান শিবির ও জরুরি অ্যাম্বুলেন্স সেবা পরিচালনা</div>
               </div>
               <div class="impact-item">
                 <div class="impact-icon">🌱</div>
-                <div class="impact-text">দুঃস্থ ছাত্রছাত্রীদের বিনামূল্যে বই, খাতা ও শিক্ষাবৃত্তি প্রদান</div>
+                <div class="impact-text" data-i18n="impact_3">দুঃস্থ ছাত্রছাত্রীদের বিনামূল্যে বই, খাতা ও শিক্ষাবৃত্তি প্রদান</div>
               </div>
               <div class="impact-item">
                 <div class="impact-icon">⚽</div>
-                <div class="impact-text">ফুটবল ও ক্রিকেট একাডেমি এবং পাঠাগার রক্ষণাবেক্ষণ</div>
+                <div class="impact-text" data-i18n="impact_4">ফুটবল ও ক্রিকেট একাডেমি এবং পাঠাগার রক্ষণাবেক্ষণ</div>
               </div>
             </div>
           </div>
@@ -754,8 +803,8 @@
           <div class="donate-right reveal rd2">
             <div class="donate-card">
               <div class="donate-card-header">
-                <div class="donate-card-title">অনুদানের পরিমাণ বেছে নিন</div>
-                <div class="donate-card-sub">কামালপুর অভিযান সংঘের উন্নয়নে আপনার সুবিধাজনক অর্থরাশি নির্বাচন করুন</div>
+                <div class="donate-card-title" data-i18n="donate_card_title">অনুদানের পরিমাণ বেছে নিন</div>
+                <div class="donate-card-sub" data-i18n="donate_card_sub">কামালপুর অভিযান সংঘের উন্নয়নে আপনার সুবিধাজনক অর্থরাশি নির্বাচন করুন</div>
               </div>
 
               <!-- Preset Amount Buttons (INR) -->
@@ -778,16 +827,16 @@
 
               <!-- Frequency Toggle -->
               <div class="donate-freq">
-                <button type="button" class="freq-btn active" data-freq="one-time">এককালীন অনুদান</button>
-                <button type="button" class="freq-btn" data-freq="monthly">মাসিক সহযোগী</button>
+                <button type="button" class="freq-btn active" data-freq="one-time" data-i18n="freq_once">এককালীন অনুদান</button>
+                <button type="button" class="freq-btn" data-freq="monthly" data-i18n="freq_monthly">মাসিক সহযোগী</button>
               </div>
 
               <!-- Action Button -->
-              <button type="button" class="donate-btn" onclick="openDonationForm()">
+              <button type="button" class="donate-btn" onclick="openDonationForm()" data-i18n="donate_btn">
                 অনুদানের রসিদ সংগ্রহ করুন →
               </button>
 
-              <p class="donate-note">
+              <p class="donate-note" data-i18n="donate_note">
                 কামালপুর অভিযান সংঘ পশ্চিমবঙ্গ সমিতি নিবন্ধন আইনের অধীনে একটি নথিভুক্ত অলাভজনক প্রতিষ্ঠান (Reg: S/54028)। সমস্ত অনুদানের জন্য পাকা রসিদ প্রদান করা হয়।
               </p>
 
@@ -810,9 +859,9 @@
       <div class="join-grid">
         <!-- Left: Intro Copy -->
         <div class="join-copy reveal">
-          <div class="eyebrow">সদস্যপদ গ্রহণ · Join The Family</div>
-          <h2 class="sh2">অভিযান পরিবারের<br><em>অংশীদার</em> হোন</h2>
-          <p>
+          <div class="eyebrow" data-i18n="join_eyebrow">সদস্যপদ গ্রহণ · Join The Family</div>
+          <h2 class="sh2" data-i18n-html="join_h2">অভিযান পরিবারের<br><em>অংশীদার</em> হোন</h2>
+          <p data-i18n="join_copy">
             ১৯৫২ সাল থেকে কামালপুর অভিযান সংঘ একটি পরিবার হিসেবে প্রতিটি বাঙালি হৃদয়ে জায়গা করে নিয়েছে। আপনি স্থানীয় বাসিন্দা হোন বা কর্মসূত্রে ভিনরাজ্যে কিংবা বিদেশে বসবাসকারী প্রবাসী — আমাদের ক্লাবের সদস্যপদ আপনাকে দুর্গাপূজা ও সমস্ত সামাজিক উদ্যোগে সরাসরি যুক্ত রাখবে।
           </p>
 
@@ -820,24 +869,24 @@
             <div class="benefit-row">
               <div class="benefit-icon">🎭</div>
               <div>
-                <div class="benefit-title">শারদীয় দুর্গোৎসবে বিশেষ সুবিধা</div>
-                <div class="benefit-desc">ভোগ কুপন, বিশেষ অঞ্জলি স্লট ও পারিবারিক সান্ধ্য সাংস্কৃতিক আসন সংরক্ষণ</div>
+                <div class="benefit-title" data-i18n="b_title_1">শারদীয় দুর্গোৎসবে বিশেষ সুবিধা</div>
+                <div class="benefit-desc" data-i18n="b_desc_1">ভোগ কুপন, বিশেষ অঞ্জলি স্লট ও পারিবারিক সান্ধ্য সাংস্কৃতিক আসন সংরক্ষণ</div>
               </div>
             </div>
 
             <div class="benefit-row">
               <div class="benefit-icon">👨‍👩‍👧‍👦</div>
               <div>
-                <div class="benefit-title">৫০০+ সদস্য পরিবারের আত্মিক যোগাযোগ</div>
-                <div class="benefit-desc">সুখে-দুঃখে একে অপরের পাশে দাঁড়ানো এবং ভ্রাতৃত্ববোধের অটুট বন্ধন</div>
+                <div class="benefit-title" data-i18n="b_title_2">৫০০+ সদস্য পরিবারের আত্মিক যোগাযোগ</div>
+                <div class="benefit-desc" data-i18n="b_desc_2">সুখে-দুঃখে একে অপরের পাশে দাঁড়ানো এবং ভ্রাতৃত্ববোধের অটুট বন্ধন</div>
               </div>
             </div>
 
             <div class="benefit-row">
               <div class="benefit-icon">🎓</div>
               <div>
-                <div class="benefit-title">পাঠাগার ও ক্রীড়া প্রশিক্ষণ সুবিধা</div>
-                <div class="benefit-desc">নেতাজী সুভাষ পাঠাগার ব্যবহার এবং ক্লাব মাঠ ও ফুটবল প্রশিক্ষণ সুবিধা</div>
+                <div class="benefit-title" data-i18n="b_title_3">পাঠাগার ও ক্রীড়া প্রশিক্ষণ সুবিধা</div>
+                <div class="benefit-desc" data-i18n="b_desc_3">নেতাজী সুভাষ পাঠাগার ব্যবহার এবং ক্লাব মাঠ ও ফুটবল প্রশিক্ষণ সুবিধা</div>
               </div>
             </div>
           </div>
@@ -845,48 +894,48 @@
 
         <!-- Right: Form Card -->
         <div class="join-card reveal rd2">
-          <div class="join-card-title">সদস্যপদের আবেদনপত্র</div>
-          <div class="join-card-sub">আপনার বিশদ বিবরণ পূরণ করুন — আমাদের কার্যকরী কমিটি ৪৮ ঘণ্টার মধ্যে যোগাযোগ করবে।</div>
+          <div class="join-card-title" data-i18n="form_title">সদস্যপদের আবেদনপত্র</div>
+          <div class="join-card-sub" data-i18n="form_sub">আপনার বিশদ বিবরণ পূরণ করুন — আমাদের কার্যকরী কমিটি ৪৮ ঘণ্টার মধ্যে যোগাযোগ করবে।</div>
 
           <form id="join-form">
             <div class="form-row form-group">
               <div>
-                <label class="form-label">নামের প্রথমাংশ *</label>
+                <label class="form-label" data-i18n="lbl_fname">নামের প্রথমাংশ *</label>
                 <input type="text" class="form-input" name="firstName" required placeholder="সৌভিক">
               </div>
               <div>
-                <label class="form-label">পদবি *</label>
+                <label class="form-label" data-i18n="lbl_lname">পদবি *</label>
                 <input type="text" class="form-input" name="lastName" required placeholder="বন্দ্যোপাধ্যায়">
               </div>
             </div>
 
             <div class="form-group">
-              <label class="form-label">ইমেইল ঠিকানা *</label>
+              <label class="form-label" data-i18n="lbl_email">ইমেইল ঠিকানা *</label>
               <input type="email" class="form-input" name="email" required placeholder="souvik@example.com">
             </div>
 
             <div class="form-group">
-              <label class="form-label">মোবাইল নম্বর (হোয়াটসঅ্যাপ) *</label>
+              <label class="form-label" data-i18n="lbl_phone">মোবাইল নম্বর (হোয়াটসঅ্যাপ) *</label>
               <input type="tel" class="form-input" name="phone" required placeholder="+৯১ ৯৮৩০০ XXXXX">
             </div>
 
             <div class="form-row form-group">
               <div>
-                <label class="form-label">এলাকা / রাস্তা / পাড়া *</label>
+                <label class="form-label" data-i18n="lbl_address">এলাকা / রাস্তা / পাড়া *</label>
                 <input type="text" class="form-input" name="city" required placeholder="কামালপুর, উত্তর ব্যারাকপুর">
               </div>
               <div>
-                <label class="form-label">রাজ্য / জেলা *</label>
+                <label class="form-label" data-i18n="lbl_state">রাজ্য / জেলা *</label>
                 <select class="form-select" name="state" required>
                   <option value="WB" selected>পশ্চিমবঙ্গ (West Bengal)</option>
-                  <option value="OTHER_INDIA">অন্যান্য রাজ্য (ভারত)</option>
+                  <option value="OTHER_INDIA">অন্যান্য রাজ্য (ভারত / Other India)</option>
                   <option value="NRI">প্রবাসী (NRI / Global Member)</option>
                 </select>
               </div>
             </div>
 
             <div class="form-group">
-              <label class="form-label">সদস্যপদ বিভাগ</label>
+              <label class="form-label" data-i18n="lbl_tier">সদস্যপদ বিভাগ</label>
               <select class="form-select" name="familySize">
                 <option value="general" selected>সাধারণ বার্ষিক সদস্যপদ (General Member)</option>
                 <option value="life">আজীবন সদস্যপদ (Life Member)</option>
@@ -896,13 +945,13 @@
             </div>
 
             <div class="form-group">
-              <label class="form-label">কোনো বিশেষ বার্তা বা জিজ্ঞাসা?</label>
+              <label class="form-label" data-i18n="lbl_message">কোনো বিশেষ বার্তা বা জিজ্ঞাসা?</label>
               <textarea class="form-textarea" name="message" rows="3" placeholder="ক্লাবের কার্যক্রমে আপনি কীভাবে অংশ নিতে চান বা কোনো পরামর্শ..."></textarea>
             </div>
 
-            <button type="submit" class="form-submit">আবেদনপত্র জমা দিন →</button>
+            <button type="submit" class="form-submit" data-i18n="form_submit">আবেদনপত্র জমা দিন →</button>
 
-            <p class="form-footer-note">
+            <p class="form-footer-note" data-i18n="form_note">
               আপনার আবেদন সরাসরি কামালপুর অভিযান সংঘের সদস্যপদ উপকমিটির কাছে পাঠানো হবে।
             </p>
           </form>
@@ -910,9 +959,9 @@
           <!-- Success Notification (Hidden initially) -->
           <div class="join-success" id="join-success">
             <div class="success-icon">🎉</div>
-            <div class="success-title">আবেদনপত্র গৃহীত হয়েছে!</div>
-            <div class="success-desc">
-              কামালপুর অভিযান সংঘ পরিবারে যুক্ত হওয়ার আগ্রহ প্রকাশের জন্য ধন্যবাদ।<br>
+            <div class="success-title" data-i18n="success_title">আবেদনপত্র গৃহীত হয়েছে!</div>
+            <div class="success-desc" data-i18n-html="success_desc">
+              কামালপুর অভিযান সংঘ পরিবারে যুক্ত হওয়ার আগ্রহ প্রকাশের জন্য ধন্যবাদ。<br>
               আমাদের কার্যকরী কমিটি খুব শীঘ্রই আপনার সঙ্গে যোগাযোগ করবে।
             </div>
           </div>
@@ -937,21 +986,21 @@
               <div class="footer-est">Estd. 1952 · Reg No: S/54028</div>
             </div>
           </div>
-          <p class="footer-tagline">
+          <p class="footer-tagline" data-i18n="footer_tagline">
             উত্তর ব্যারাকপুরের ঐতিহ্যবাহী সামাজিক, সাংস্কৃতিক ও ক্রীড়া সংস্থা। শারদীয় দুর্গোৎসব ২০২৭।
           </p>
           <address class="footer-addr">
             <a href="https://maps.google.com/?q=Kamalpur+Road+North+Barrackpore" target="_blank" rel="noopener noreferrer">
-              <i class="fa-solid fa-location-dot"></i> কামালপুর রোড (আনন্দময়ী কালীবাড়ি মোড়), উত্তর ব্যারাকপুর, উত্তর ২৪ পরগনা, পশ্চিমবঙ্গ - ৭০০১২০
+              <i class="fa-solid fa-location-dot"></i> <span data-i18n="footer_addr">কামালপুর রোড (আনন্দময়ী কালীবাড়ি মোড়), উত্তর ব্যারাকপুর, উত্তর ২৪ পরগনা, পশ্চিমবঙ্গ - ৭০০১২০</span>
             </a><br>
             <a href="mailto:info@kamalpurabhijansangha.org">
               <i class="fa-solid fa-envelope"></i> info@kamalpurabhijansangha.org
             </a><br>
             <a href="tel:+919830024891">
-              <i class="fa-solid fa-phone"></i> সুব্রত ভট্টাচার্য (সভাপতি): +৯১ ৯৮৩০০ ২৪৮৯১
+              <i class="fa-solid fa-phone"></i> <span data-i18n="footer_pres">সুব্রত ভট্টাচার্য (সভাপতি): +৯১ ৯৮৩০০ ২৪৮৯১</span>
             </a><br>
             <a href="tel:+919831277410">
-              <i class="fa-solid fa-phone"></i> সৌমেন মুখোপাধ্যায় (সম্পাদক): +৯১ ৯৮৩১২ ৭৭৪১০
+              <i class="fa-solid fa-phone"></i> <span data-i18n="footer_sec">সৌমেন মুখোপাধ্যায় (সম্পাদক): +৯১ ৯৮৩১২ ৭৭৪১০</span>
             </a>
           </address>
           <div class="footer-social">
@@ -969,24 +1018,24 @@
 
         <!-- Col 2: Navigate -->
         <div>
-          <div class="footer-col-title">সাইট ম্যাপ</div>
-          <a href="#home" class="footer-link">মূল পাতা (Home)</a>
-          <a href="#about" class="footer-link">আমাদের কথা (About Us)</a>
-          <a href="#upcoming-durga-puja" class="footer-link">শারদীয় দুর্গোৎসব ২০২৭</a>
-          <a href="#events" class="footer-link">পূজা ও সাংস্কৃতিক নির্ঘণ্ট</a>
-          <a href="#president" class="footer-link">সভাপতির বার্তা</a>
-          <a href="#heritage" class="footer-link">ঐতিহ্য ও ইতিহাস</a>
+          <div class="footer-col-title" data-i18n="nav_home">সাইট ম্যাপ</div>
+          <a href="#home" class="footer-link" data-i18n="nav_home">মূল পাতা (Home)</a>
+          <a href="#about" class="footer-link" data-i18n="nav_about">আমাদের কথা (About Us)</a>
+          <a href="#upcoming-durga-puja" class="footer-link" data-i18n="nav_puja">শারদীয় দুর্গোৎসব ২০২৭</a>
+          <a href="#events" class="footer-link" data-i18n="nav_events">পূজা ও সাংস্কৃতিক নির্ঘণ্ট</a>
+          <a href="#president" class="footer-link" data-i18n="nav_president">সভাপতির বার্তা</a>
+          <a href="#heritage" class="footer-link" data-i18n="nav_heritage">ঐতিহ্য ও ইতিহাস</a>
           <a href="#contact" class="footer-link">যোগাযোগ</a>
         </div>
 
         <!-- Col 3: Get Involved -->
         <div>
           <div class="footer-col-title">অংশগ্রহণ করুন</div>
-          <a href="#join" class="footer-link">সদস্যপদের আবেদন</a>
+          <a href="#join" class="footer-link" data-i18n="nav_join">সদস্যপদের আবেদন</a>
           <a href="#join" class="footer-link">স্বেচ্ছাসেবক নিবন্ধন</a>
-          <a href="#donate" class="footer-link">পূজা অনুদান ও চাঁদা</a>
+          <a href="#donate" class="footer-link" data-i18n="nav_donate">পূজা অনুদান ও চাঁদা</a>
           <a href="#join" class="footer-link">স্মরণিকা বিজ্ঞাপন বুকিং</a>
-          <a href="#sponsors" class="footer-link">বিজ্ঞাপনী পার্টনার</a>
+          <a href="#sponsors" class="footer-link" data-i18n="nav_sponsors">বিজ্ঞাপনী পার্টনার</a>
           <a href="#events" class="footer-link">রক্তদান শিবিরে নাম নথিভুক্ত</a>
         </div>
 
@@ -1003,7 +1052,7 @@
       </div>
 
       <div class="footer-bottom">
-        <div class="footer-copy">© ২০২৭ কামালপুর অভিযান সংঘ (Kamalpur Abhijaan Sangha)। সর্বস্বত্ব সংরক্ষিত।</div>
+        <div class="footer-copy" data-i18n="footer_copy">© ২০২৭ কামালপুর অভিযান সংঘ (Kamalpur Abhijaan Sangha)। সর্বস্বত্ব সংরক্ষিত।</div>
         <div class="footer-copy">
           <a href="#contact">যোগাযোগ</a>
           <a href="#privacy">গোপনীয়তা নীতি</a>
